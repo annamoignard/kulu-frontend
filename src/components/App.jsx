@@ -3,6 +3,9 @@ import { Home } from './Home';
 import { Schedule } from './Schedule';
 import { NewBooking } from './NewBooking';
 import { NavBar } from './NavBar';
+import { ProtectedRoute } from "./ProtectedRoute";
+import { Login } from "./Login";
+import { SignUp } from "./SignUp";
 
 
 function App() {
@@ -14,6 +17,8 @@ function App() {
       <Route exact path="/home" component={Home} />
       <Route exact path="/newbooking" component={NewBooking} />
       <Route exact path="/schedule" component={Schedule} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/sign-up" component={SignUp} />
     </Switch>
     </>
   );
