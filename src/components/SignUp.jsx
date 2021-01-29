@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { LoggedOutNavbar } from './LoggedOutNavbar.jsx'
+import { LoggedOutNavbar } from './LoggedOutNavbar.jsx';
+import { Form } from '../styles/Form'; 
 
 export function SignUp({ history }) {
   const [username, setUsername] = useState("");

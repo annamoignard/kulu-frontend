@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 export function Schedule(){
-  const [schedule, setSchedule] = useState([]);
+  const [session, setSession] = useState([]);
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL)
     .then((res) => res.json())
-    .then((body) => setSchedule(body));
+    .then((body) => setSession(body));
   }, []);
 
   return ( 
     <div>
       <h1>Schedule</h1>
-      {schedule.map((schedule) => {
+      {session.map((s) => {
         return (
-          <div key={schedule.id}>
-            <h2>{schedule.session}</h2>
-            <p>{schedule.date}</p>
-            <p>{schedule.instructor}</p>
+          <div key={s.id}>
+            <h2>{s.session}</h2>
+            <p>{s.date}</p>
+            <p>{s.instructor}</p>
             <Link to="/NewBooking"> Book a Class</Link>
           </div>
         );
