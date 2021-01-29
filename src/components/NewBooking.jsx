@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from "react";
-
 export function NewBooking(props) {
-  const [booking, setBooking] = useState(null);
-  const id = props.match.params.id
-
-  useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL)
-      .then((res) => res.json())
-      .then((body) => {
-        const foundBooking = booking.find((booking) => {
-          return booking.id === id
-        })
-        setBooking(foundBooking)
-      });
-  }, [id]);
-
-  return <h1>New Booking</h1>;
+  
+  return (
+  <form>
+    <label for="session">Session</label>
+    <select name="session" id="session">
+      <option value ="Vinyasa Flow">Vinyasa Flow</option>
+      <option value ="Power Flow">Power Flow</option>
+      <option value ="Restorative Flow">Restorative Flow</option>
+    </select>
+    <label htmlFor="date">Date</label>
+    <input type="text" name="date" id="date"/>
+    <label htmlFor="instructor">Instructor</label>
+    <input type="text" name="instructor" id="instructor"/>
+    </form> 
+  )
 }
