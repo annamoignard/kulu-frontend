@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export function Schedule(){
   const [session, setSession] = useState([]);
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL)
+    fetch("http://localhost:3000/sessions")
     .then((res) => res.json())
     .then((body) => setSession(body));
   }, []);
