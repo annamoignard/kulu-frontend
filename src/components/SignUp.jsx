@@ -9,7 +9,7 @@ export function SignUp({ history }) {
   async function onFormSubmit(event) {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/sign-up", {
+      const response = await fetch("http://localhost:3000/auth/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export function SignUp({ history }) {
       if (response.status >= 400) {
         throw new Error("incorrect credentials");
       } else {
-        const response = await fetch("http://localhost:3000/sign-in", {
+        const response = await fetch("http://localhost:3000/auth/sign-in", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
