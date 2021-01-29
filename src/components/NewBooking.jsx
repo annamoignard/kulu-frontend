@@ -1,17 +1,18 @@
-export function NewBooking(props) {
-  
+import { NewBookingForm, BookingLabel} from '../styles/NewBooking'
+
+export function NewBooking() {
   return (
-  <form>
-    <label for="session">Session</label>
+  <NewBookingForm>
+  <BookingLabel for="session">Session</BookingLabel>
     <select name="session" id="session">
       <option value ="Vinyasa Flow">Vinyasa Flow</option>
       <option value ="Power Flow">Power Flow</option>
       <option value ="Restorative Flow">Restorative Flow</option>
     </select>
-    <label htmlFor="date">Date</label>
+    <BookingLabel  htmlFor="date">Date</BookingLabel>
     <input type="text" name="date" id="date"/>
-    <label htmlFor="instructor">Instructor</label>
-    <input type="text" name="instructor" id="instructor"/>
-    </form> 
+    <BookingLabel htmlFor="Client Name">Client Name</BookingLabel>
+    <input type="text" name="Client Name" id="Client Name"/>
+    </NewBookingForm> 
   )
 }
