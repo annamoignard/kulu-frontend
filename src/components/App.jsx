@@ -7,7 +7,6 @@ import { NavBar } from './NavBar';
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Login } from "./Login";
 import { SignUp } from "./SignUp";
-import { Schedule } from "./Schedule"
 
 
 function App() {
