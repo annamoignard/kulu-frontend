@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
-export function Schedule(){
+
+
+export function Schedule() {
   const [session, setSession] = useState([]);
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL)
-    .then((res) => res.json())
-    .then((body) => setSession(body));
+    fetch("http://localhost:3000/sessions")
+      .then((res) => res.json())
+      .then((body) => {
+        console.log(body);
+        setSession(body)
+      });
   }, []);
 
-  return ( 
+  return (
     <div>
       <h1>Schedule</h1>
-      {session.map((s) => {
+      {session && session.map((s) => {
         return (
           <div key={s.id}>
-            <h2>{s.session}</h2>
+            <h2>{s.name}</h2>
             <p>{s.date}</p>
             <p>{s.instructor}</p>
             <Link to="/NewBooking"> Book a Class</Link>
@@ -23,5 +28,5 @@ export function Schedule(){
         );
       })}
     </div>
-    );
-  }
+  );
+}
