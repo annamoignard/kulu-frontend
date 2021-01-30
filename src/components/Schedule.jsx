@@ -6,6 +6,7 @@ import { ScheduleCards, ScheduleContainer, Title } from '../styles/Schedule';
 
 export function Schedule() {
   const [session, setSession] = useState([]);
+  // const [instructor, setInstructor] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/sessions")
       .then((res) => res.json())
@@ -14,6 +15,17 @@ export function Schedule() {
         setSession(body)
       });
   }, []);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/instructors")
+  //     .then((res) => res.json())
+  //     .then((body) => {
+  //       console.log(body);
+  //       setInstructor(body)
+  //     });
+  // }, []);
+
+  //  ask harrison on Monday 
 
   return (
     <>
@@ -24,8 +36,8 @@ export function Schedule() {
           <ScheduleCards key={s.id}>
             <h2>{s.name}</h2>
             <p>{s.time}</p>
-            <p>{s.instructer_id}</p>
-            <p>{s.minutes}</p>
+            <p>{s.instructor}</p>
+            <p>{s.minutes}minutes</p>
             <Link to="/NewBooking"> Book Now</Link>
           </ScheduleCards>
         );

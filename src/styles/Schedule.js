@@ -10,17 +10,18 @@ export const ScheduleContainer = styled.div`
   display: flex;
   justify-content: center; 
   align-items: center;
-  font-family: 'Poppins', sans-serif; 
-  margin: 50px 5px;`
+  flex-wrap: wrap; 
+  font-family: 'Poppins', sans-serif;`
+  /* margin: 50px 5px;` */
 
 export const ScheduleCards = styled.div`
   font-family: 'Poppins', sans-serif;
+  font-size: 12px;
   display: flex;
   flex-direction: column; 
+  flex: 0 1 24%; 
   box-sizing: border-box; 
-  height: 100px;
-  width: 100px; 
-  width: 70%;
   border: 1px solid black; 
   padding: 10px; 
-  margin: 20px 20px;`
+  margin: 10px 10px;
+ `
