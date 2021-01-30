@@ -20,7 +20,7 @@ export function NewBooking() {
         name="session"
         id="session"
         value={session}
-        onChange={(e) => setSession(e.target.val)}
+        onChange={(e) => setSession(e.target.value)}
       >
         <option value="Vinyasa Flow">Vinyasa Flow</option>
         <option value="Power Flow">Power Flow</option>
@@ -32,7 +32,7 @@ export function NewBooking() {
         name="date"
         id="date"
         value={date}
-        onChange={(e) => setDate(e.target.val)}
+        onChange={(e) => setDate(e.target.value)}
       />
       <BookingLabel htmlFor="Client Name">Client Name</BookingLabel>
       <BookingInput
@@ -40,7 +40,7 @@ export function NewBooking() {
         name="Client Name"
         id="Client Name"
         value={clientName}
-        onChange={(e) => setClientName(e.target.val)}
+        onChange={(e) => setClientName(e.target.value)}
       />
       <BookingInputSubmit id="submit" type="submit" value="Submit" />
     </NewBookingForm>
