@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { ScheduleCards, ScheduleContainer, Title } from '../styles/Schedule'; 
 
 
 
@@ -15,18 +16,21 @@ export function Schedule() {
   }, []);
 
   return (
-    <div>
-      <h1>Schedule</h1>
+    <>
+    <Title>Schedule</Title>
+    <ScheduleContainer>
       {session && session.map((s) => {
         return (
-          <div key={s.id}>
+          <ScheduleCards key={s.id}>
             <h2>{s.name}</h2>
-            <p>{s.date}</p>
-            <p>{s.instructor}</p>
+            <p>{s.time}</p>
+            <p>{s.instructer_id}</p>
+            <p>{s.minutes}</p>
             <Link to="/NewBooking"> Book a Class</Link>
-          </div>
+          </ScheduleCards>
         );
       })}
-    </div>
+    </ScheduleContainer>
+    </> 
   );
 }
