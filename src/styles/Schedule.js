@@ -18,6 +18,8 @@ export const ScheduleCards = styled.div`
   display: flex;
   flex-direction: column; 
   box-sizing: border-box; 
+  height: 100px;
+  width: 100px; 
   width: 70%;
   border: 1px solid black; 
   padding: 10px; 
