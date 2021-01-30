@@ -21,3 +21,7 @@ export const BookingInputSubmit = styled.input`
   padding: 10px;
   margin: 10px 0px;
 `
+export const BookingSelect = styled.input`
+  height: 20px;
+  font-size: 15px;
+`
