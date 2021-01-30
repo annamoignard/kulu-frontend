@@ -4,6 +4,7 @@ import {
   BookingLabel,
   BookingInput,
   BookingInputSubmit,
+  BookingSelect,
 } from "../styles/NewBooking";
 
 export function NewBooking() {
@@ -16,7 +17,7 @@ export function NewBooking() {
   return (
     <NewBookingForm>
       <BookingLabel for="session">Session</BookingLabel>
-      <select
+      <BookingSelect
         name="session"
         id="session"
         value={session}
@@ -25,7 +26,8 @@ export function NewBooking() {
         <option value="Vinyasa Flow">Vinyasa Flow</option>
         <option value="Power Flow">Power Flow</option>
         <option value="Restorative Flow">Restorative Flow</option>
-      </select>
+      </BookingSelect>
+
       <BookingLabel htmlFor="date">Date</BookingLabel>
       <BookingInput
         type="text"
