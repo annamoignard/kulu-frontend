@@ -26,7 +26,7 @@ export function Schedule() {
             <p>{s.time}</p>
             <p>{s.instructer_id}</p>
             <p>{s.minutes}</p>
-            <Link to="/NewBooking"> Book a Class</Link>
+            <Link to="/NewBooking"> Book Now</Link>
           </ScheduleCards>
         );
       })}

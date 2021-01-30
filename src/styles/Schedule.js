@@ -14,9 +14,11 @@ export const ScheduleContainer = styled.div`
   margin: 50px 5px;`
 
 export const ScheduleCards = styled.div`
-  font-family: 'Poppins', sans-serif
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column; 
   box-sizing: border-box; 
   width: 70%;
-  margin: 10px 0px;`
+  border: 1px solid black; 
+  padding: 10px; 
+  margin: 20px 20px;`
