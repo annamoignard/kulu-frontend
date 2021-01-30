@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory, Link } from 'react-router-dom'; 
+import { Nav, NavLink } from '../styles/Nav'; 
 
 export function NavBar() {
   const history = useHistory()
@@ -11,13 +12,13 @@ export function NavBar() {
   }
 
   return (
-    <nav>
-      <Link to="/NewBooking">New Booking</Link>
-      <Link to="/Schedule">Schedule</Link>
-      <Link to="/Home">Home</Link>
-      <Link to="/secrets">Secrets</Link> 
-      <Link to="/login">Login</Link>
-      <Link to="/sign-up">Sign Up</Link>
-    </nav>
+    <Nav>
+      <NavLink to="/NewBooking">New Booking</NavLink>
+      <NavLink to="/Schedule">Schedule</NavLink>
+      <NavLink to="/Home">Home</NavLink>
+      <NavLink to="/secrets">Secrets</NavLink> 
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/sign-up">Sign Up</NavLink>
+    </Nav>
   );
 }
