@@ -29,6 +29,7 @@ export function NewBooking({ history }) {
       console.log(err.message);
     }
   }
+
  return (
     <>
     <div className="form-group">
@@ -73,39 +74,5 @@ export function NewBooking({ history }) {
       <input id="submit" type="submit" value="Submit" />
     </Form>
     </>
-  );
-}
-  return (
-    <NewBookingForm>
-      <BookingLabel htmlFor="session">Session</BookingLabel>
-      <BookingSelect
-        name="session"
-        id="session"
-        value={session}
-        onChange={(e) => setSession(e.target.value)}
-      >
-        <option value="Vinyasa Flow">Vinyasa Flow</option>
-        <option value="Power Flow">Power Flow</option>
-        <option value="Restorative Flow">Restorative Flow</option>
-      </BookingSelect>
-
-      <BookingLabel htmlFor="date">Date</BookingLabel>
-      <BookingInput
-        type="text"
-        name="date"
-        id="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <BookingLabel htmlFor="Client Name">Client Name</BookingLabel>
-      <BookingInput
-        type="text"
-        name="Client Name"
-        id="Client Name"
-        value={clientName}
-        onChange={(e) => setClientName(e.target.value)}
-      />
-      <BookingInputSubmit id="submit" type="submit" value="Submit" />
-    </NewBookingForm>
   );
 }
