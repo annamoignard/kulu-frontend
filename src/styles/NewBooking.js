@@ -3,26 +3,27 @@ import styled from 'styled-components'
 export const Form = styled.form`
 display: flex;
   flex-direction: column;
+  align-items: center;
   .form-group {
     display: flex;
     flex-direction: column;
     margin: 10px 0px;
     label {
-      font-size: x-large;
+      font-size: large;
       margin-bottom: 5px;
     }
     input {
-      height: 25px;
-      font-size: 20px;
+      height: 30px;
+      font-size: 15px;
     }
     select {
-      height: 30px;
-      font-size: 20px;
+      height: 40px;
+      font-size: 15px;
     }
   }
   #submit {
-    width: 100px;
-    height: 40px;
-    margin: 10px 0px;
+    width: 80px;
+    height: 20px;
+    margin: 1px 0px;
   }
 `;
