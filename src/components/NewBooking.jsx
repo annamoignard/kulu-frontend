@@ -6,29 +6,29 @@ export function NewBooking({ history }) {
   const [date, setDate] = useState("");
   const [clientName, setClientName] = useState("");
 
-  // async function onFormSubmit(e) {
-  //   try {
-  //     e.preventDefault();
-  //     await fetch(`${process.env.REACT_APP_BACKEND_URL}/bookings`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //       },
-  //       body: JSON.stringify({
-  //         NewBooking: {
-  //           session: session,
-  //           date: date,
-  //           client_name: clientName,
-  //         },
-  //       }),
-  //     });
-  //     // redirect_to
-  //     history.push("/bookings");
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // }
+  async function onFormSubmit(e) {
+    try {
+      e.preventDefault();
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/bookings`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          NewBooking: {
+            session: session,
+            date: date,
+            client_name: clientName,
+          },
+        }),
+      });
+      // redirect_to
+      history.push("/bookings");
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 
   return (
     <>
