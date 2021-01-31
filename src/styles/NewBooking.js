@@ -1,27 +1,28 @@
 import styled from 'styled-components'
 
-export const NewBookingForm = styled.form`
-  display: flex;
+export const Form = styled.form`
+display: flex;
   flex-direction: column;
-  width: 70%;
-  margin: 10px 0px;
-`
-
-export const BookingLabel = styled.label`
-  margin: 5px 0px;
-`
-export const BookingInput = styled.input`
-  height: 20px;
-  font-size: 15px;
-`
-
-export const BookingInputSubmit = styled.input`
-  font-size: 15px;
-  width: 100px;
-  padding: 10px;
-  margin: 10px 0px;
-`
-export const BookingSelect = styled.input`
-  height: 20px;
-  font-size: 15px;
-`
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    label {
+      font-size: x-large;
+      margin-bottom: 5px;
+    }
+    input {
+      height: 25px;
+      font-size: 20px;
+    }
+    select {
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+  #submit {
+    width: 100px;
+    height: 40px;
+    margin: 10px 0px;
+  }
+`;
