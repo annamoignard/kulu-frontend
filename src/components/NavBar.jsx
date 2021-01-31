@@ -8,17 +8,18 @@ export function NavBar() {
   function logout(e) {
     e.preventDefault();
     localStorage.removeItem("token");
-    history.push("/login")
+    history.push("/login") 
   }
 
   return (
     <Nav>
-      <NavLink to="/NewBooking">New Booking</NavLink>
-      <NavLink to="/Schedule">Schedule</NavLink>
       <NavLink to="/Home">Home</NavLink>
-      <NavLink to="/secrets">Secrets</NavLink> 
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/sign-up">Sign Up</NavLink>
+      <NavLink to="/Schedule">Schedule</NavLink>
+      <NavLink to="/NewBooking">New Booking</NavLink>
+      <NavLink to="/" onClick={logout}>Logout</NavLink> 
+      <NavLink to="/secrets">Secrets</NavLink> 
     </Nav>
   );
 }
