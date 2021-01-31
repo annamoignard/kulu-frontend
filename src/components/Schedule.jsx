@@ -29,7 +29,7 @@ export function Schedule() {
 
   return (
     <>
-    <Title>Schedule</Title>
+    <Title>Timetable</Title>
     <ScheduleContainer>
       {session && session.map((s) => {
         return (

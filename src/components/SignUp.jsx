@@ -40,7 +40,7 @@ export function SignUp({ history }) {
     <>
       <LoggedOutNavbar />
       <h1>Sign Up</h1>
-      <form onSubmit={onFormSubmit}>
+      <Form onSubmit={onFormSubmit}>
       <label htmlFor="username">Username</label>
         <input
           type="username"
@@ -66,7 +66,7 @@ export function SignUp({ history }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type="submit" value="Submit" />
-      </form>
+      </Form>
     </>
   );
 }
