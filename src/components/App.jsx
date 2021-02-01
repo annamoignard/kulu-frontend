@@ -7,6 +7,8 @@ import { NavBar } from './NavBar';
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Login } from "./Login";
 import { SignUp } from "./SignUp";
+import { UpdateSession } from "./UpdateSession";
+import { CreateSession } from "./CreateSession";
 
 
 function App() {
@@ -16,9 +18,11 @@ function App() {
     <NavBar/>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/newbooking" component={NewBooking} />
+      <Route exact path="/new-booking" component={NewBooking} />
       <Route exact path="/bookings" component={Bookings} />
       <Route exact path="/schedule" component={Schedule} />
+      <Route exact path="/create-session" component={CreateSession} />
+      <Route exact path="/update-class" component={UpdateSession} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp} />
     </Switch>

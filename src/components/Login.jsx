@@ -26,7 +26,7 @@ export function Login({ history }) {
       } else {
         const { jwt } = await response.json();
         localStorage.setItem("token", jwt);
-        history.push("/newbooking");
+        history.push("/new-booking");
       }
     } catch (err) {
       setErrMessage(err.message);
