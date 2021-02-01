@@ -29,7 +29,7 @@ export function SignUp({ history }) {
         });
         const { jwt } = await response.json();
         localStorage.setItem("token", jwt);
-        history.push("/newbooking");
+        history.push("/new-booking");
       }
     } catch (err) {
       console.log(err.message);

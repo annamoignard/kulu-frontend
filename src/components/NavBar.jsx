@@ -17,7 +17,7 @@ export function NavBar() {
       <NavLink to="/login">Login</NavLink>
       <NavLink to="/sign-up">Sign Up</NavLink>
       <NavLink to="/schedule">Timetable</NavLink>
-      <NavLink to="/newbooking">New Booking</NavLink>
+      <NavLink to="/new-booking">New Booking</NavLink>
       <NavLink to="/" onClick={logout}>Logout</NavLink> 
       <NavLink to="/secrets">Secrets</NavLink> 
     </Nav>
