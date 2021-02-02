@@ -10,7 +10,7 @@ export function CreateSession({ history }) {
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
-      await fetch(`http://localhost:3000/sessions`, {
+      await fetch("http://localhost:3000/sessions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export function CreateSession({ history }) {
         }),
       });
       // this is like using redirect_to
-      history.push("/sessions");
+      history.push("/schedule");
     } catch (err) {
       console.log(err.message);
     }
@@ -76,7 +76,7 @@ export function CreateSession({ history }) {
         <div className="form-group">
           <label htmlFor="cost">Price</label>
           <input
-            type="cost"
+            type="number"
             name="cost"
             id="cost"
             placeholder="$25"
@@ -91,7 +91,7 @@ export function CreateSession({ history }) {
           id="minutes"
           placeholder="60"
           value={minutes}
-          onChange={(e) => setTime(e.target.value)}
+          onChange={(e) => setMinutes(e.target.value)}
         />
       <input id="submit" type="submit" value="Submit" />
     </form >

@@ -45,14 +45,14 @@ export function UpdateSession() {
         }),
       });
       // redirect_to
-      history.push("/sessions");
+      history.push("/schedule");
     } catch (err) {
       console.log(err.message);
     }
   }
 
   return (
-    date && (
+    (
       <>
         <h1>Edit Session</h1>
         <form onSubmit={onFormSubmit}>
