@@ -8,18 +8,23 @@ export function Schedule() {
   const [instructor, setInstructor] = useState(false);
   // const id = props.match.params.id;
 
-  useEffect(() => {
-    fetch("http://localhost:3000/sessions", {
-      headers: {
-        "Content-Type": "application/json",
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => res.json())
-      .then(({ sessions, instructor }) => {
-        setSession(sessions)
-        setInstructor(instructor)
-      });
+// test
+function fetchSessions(){
+  fetch("http://localhost:3000/sessions", {
+    headers: {
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+  })
+    .then((res) => res.json())
+    .then(({ sessions, instructor }) => {
+      setSession(sessions)
+      setInstructor(instructor)
+    });
+}
+
+  useEffect(() => { 
+    fetchSessions();
   }, []);
 
   // useEffect(() => {
@@ -48,6 +53,7 @@ export function Schedule() {
             },
           }
         );
+        fetchSessions();
       }
     } catch (err) {
       console.log(err.message);
@@ -71,7 +77,7 @@ export function Schedule() {
                 <>
                   <Link to={`/session/${s.id}/update`}>Update</Link>
                   <Link to="/create-session">Add Class</Link>
-                  <Link onClick={(e) => onDeleteLinkClick(e, session)}
+                  <Link onClick={(e) => onDeleteLinkClick(e, s)}
                   to={`/session/${s.id}`}>Remove</Link>
                 </>
               )
