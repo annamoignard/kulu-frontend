@@ -2,17 +2,12 @@ import styled from 'styled-components'
 
 export const Title = styled.h1`
 font-family: 'Poppins', sans-serif;
-text-align: center; 
 `
-
-
 export const ScheduleContainer = styled.div`
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap; 
   font-family: 'Poppins', sans-serif;`
-  /* margin: 50px 5px;` */
 
 export const ScheduleCards = styled.div`
   font-family: 'Poppins', sans-serif;

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Form } from "../styles/NewBooking";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8x"
+);
 
 export function NewBooking({ history }) {
   const [session, setSession] = useState("");
@@ -18,18 +23,27 @@ export function NewBooking({ history }) {
         body: JSON.stringify({
           NewBooking: {
             session: session,
-            date: date,
+            dates_available: date,
             client_name: clientName,
           },
         }),
       });
-      // redirect_to
-      history.push("/bookings");
+      const stripe = await stripePromise;
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/charges`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }
+      });
+      const stripeId = await response.json();
+      const result = await stripe.redirectToCheckout({
+        sessionId: stripeId.id,
+      });
     } catch (err) {
       console.log(err.message);
     }
   }
-
   return (
     <>
       <div className="form-group">
@@ -45,9 +59,9 @@ export function NewBooking({ history }) {
           <option value="Restorative Flow">Restorative Flow</option>
         </select>
       </div>
-      <Form onSubmit={onFormSubmit}>
+      <Form>
         <div className="form-group">
-          <label htmlFor="date">Date</label>
+          <label htmlFor="date">Dates Available</label>
           <input
             type="text"
             name="date"
@@ -68,8 +82,16 @@ export function NewBooking({ history }) {
             onChange={(e) => setClientName(e.target.value)}
           />
         </div>
-        <input id="submit" type="submit" value="Submit" />
       </Form>
+      <h1>$25</h1>
+      <button
+        type="button"
+        id="checkout-button"
+        role="link"
+        onClick={onFormSubmit}
+      >
+        Checkout
+      </button>
     </>
   );
 }

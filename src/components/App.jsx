@@ -10,7 +10,6 @@ import { SignUp } from "./SignUp";
 import { UpdateSession } from "./UpdateSession";
 import { CreateSession } from "./CreateSession";
 
-
 function App() {
 
   return (
