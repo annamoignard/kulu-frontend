@@ -6,6 +6,8 @@ import { ScheduleCards, ScheduleContainer, Title } from '../styles/Schedule';
 export function Schedule() {
   const [session, setSession] = useState([]);
   const [instructor, setInstructor] = useState(false);
+  // const id = props.match.params.id;
+
   useEffect(() => {
     fetch("http://localhost:3000/sessions", {
       headers: {
@@ -61,15 +63,16 @@ export function Schedule() {
             <ScheduleCards key={s.id}>
               <h2>{s.name}</h2>
               <p>{s.time}</p>
+              <p>{s.cost}</p>
               <p>{s.instructor}</p>
               <p>{s.minutes}minutes</p>
               <Link to="/new-booking"> Book Now</Link>
               {instructor && (
                 <>
-                  <Link to="/update-session">Update</Link>
+                  <Link to={`/session/${s.id}/update`}>Update</Link>
                   <Link to="/create-session">Add Class</Link>
                   <Link onClick={(e) => onDeleteLinkClick(e, session)}
-                  to={`/sessions/${session.id}`}>Remove</Link>
+                  to={`/session/${s.id}`}>Remove</Link>
                 </>
               )
               }

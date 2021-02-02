@@ -22,7 +22,7 @@ function App() {
       <Route exact path="/bookings" component={Bookings} />
       <Route exact path="/schedule" component={Schedule} />
       <Route exact path="/create-session" component={CreateSession} />
-      <Route exact path="/update-class" component={UpdateSession} />
+      <Route exact path="/session/:id/update" component={UpdateSession} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp} />
     </Switch>
