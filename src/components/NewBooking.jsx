@@ -4,10 +4,11 @@ import { loadStripe } from "@stripe/stripe-js";
 
 //stripe publishable key- Load Stripe.js
 const stripePromise = loadStripe(
-  "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8x"
+  "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8"
 );
 
-export function NewBooking({ history }) {
+export function NewBooking({ history, location }) {
+  console.log(location.state)
   const [session, setSession] = useState("");
   const [date, setDate] = useState("");
   const [clientName, setClientName] = useState("");
@@ -30,6 +31,7 @@ export function NewBooking({ history }) {
           },
         }),
       });
+
       const stripe = await stripePromise;
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/charges`,
@@ -41,18 +43,23 @@ export function NewBooking({ history }) {
           },
         }
       );
+      
       const stripeId = await response.json();
-      //When client clicks "pay" redirect to checkout
+      // //When client clicks "pay" redirect to checkout
       const result = await stripe.redirectToCheckout({
         sessionId: stripeId.id,
       });
+
     } catch (err) {
       console.log(err.message);
     }
   }
-  //  Form for client to fill out new booking
+
+  // Form for client to fill out new booking
   return (
     <>
+    <h1>Your Booking</h1>
+    <Form onSubmit={onFormSubmit}></Form>
       <div className="form-group">
         <label htmlFor="session">Choose Class</label>
         <select
@@ -90,8 +97,7 @@ export function NewBooking({ history }) {
           />
         </div>
       </Form>
-      {/* Stripe checkout button */}
-      <h1>Book Class: $25</h1>
+      <h1>Book Class $25</h1>
       <button
         type="button"
         id="checkout-button"
