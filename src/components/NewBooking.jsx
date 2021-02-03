@@ -30,7 +30,7 @@ export function NewBooking({ history, location }) {
           },
         }),
       });
-
+      //fetch stripe payments page using local host
       const stripe = await stripePromise;
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/charges`,
@@ -42,50 +42,29 @@ export function NewBooking({ history, location }) {
           },
         }
       );
-      
+
       const stripeId = await response.json();
       // //When client clicks "pay" redirect to checkout
       const result = await stripe.redirectToCheckout({
         sessionId: stripeId.id,
       });
-
     } catch (err) {
       console.log(err.message);
     }
   }
 
-  // Form for client to fill out new booking
+  // Client can view their booking and pay for the class 
   return (
     <>
-    <h1>Your Booking</h1>
-    <Form onSubmit={onFormSubmit}></Form>
-      <div className="form-group">
-        <label htmlFor="session">Choose Class</label>
-        <select
-          name="session"
-          id="session"
-          value={session}
-          onChange={(e) => setSession(e.target.value)}
-        >
-          <option value="Vinyasa Flow">Vinyasa Flow</option>
-          <option value="Power Flow">Power Flow</option>
-          <option value="Restorative Flow">Restorative Flow</option>
-        </select>
-      </div>
+      <h1>Your Booking</h1>
+      <h2>{location.state.name}</h2>
+      <h2>{location.state.time}</h2>
+      <h2>{location.state.instructor}</h2>
+
+      <Form onSubmit={onFormSubmit}></Form>
       <Form>
         <div className="form-group">
-          <label htmlFor="date">Dates Available</label>
-          <input
-            type="text"
-            name="date"
-            id="date"
-            placeholder="dd/mm/yy"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="client-name">Client Name</label>
+          <label htmlFor="client-name">Your Name</label>
           <input
             type="text"
             name="client-name"

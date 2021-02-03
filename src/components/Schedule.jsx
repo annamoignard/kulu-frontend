@@ -66,7 +66,7 @@ export function Schedule() {
                   state: {
                     name: s.name,
                     time: s.time,
-                    instructor: s.instructor,
+                    instructor: s.instructor,                    
                   },
                 }}
               >
