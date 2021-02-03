@@ -69,7 +69,7 @@ function fetchSessions(){
             <ScheduleCards key={s.id}>
               <h2>{s.name}</h2>
               <p>{s.time}</p>
-              <p>{s.cost}</p>
+              <p>{s.cost}$</p>
               <p>{s.instructor}</p>
               <p>{s.minutes}minutes</p>
               <Link to="/new-booking"> Book Now</Link>

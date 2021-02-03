@@ -13,8 +13,8 @@ export function NavBar() {
 
   return (
     <Nav>
-      <NavLink to="/">Home</NavLink>
       <NavLink to="/login">Login</NavLink>
+      <NavLink to="/">Home</NavLink>
       <NavLink to="/sign-up">Sign Up</NavLink>
       <NavLink to="/schedule">Timetable</NavLink>
       <NavLink to="/" onClick={logout}>Logout</NavLink> 

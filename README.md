@@ -5,4 +5,4 @@
 
 ### WIP 
 
-![](./kulu-logo/kulu.png)
+![](./assets/kululogo.png)
