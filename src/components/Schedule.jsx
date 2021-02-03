@@ -10,7 +10,7 @@ export function Schedule() {
 
 // test
 function fetchSessions(){
-  fetch("http://localhost:3000/sessions", {
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
     headers: {
       "Content-Type": "application/json",
       'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -44,7 +44,7 @@ function fetchSessions(){
       e.preventDefault();
       if (window.confirm("Are you sure you want to delete?")) {
         await fetch(
-          `http://localhost:3000/sessions/${session.id}`,
+          `${process.env.REACT_APP_BACKEND_URL}/sessions/${session.id}`,
           {
             method: "DELETE",
             headers: {
