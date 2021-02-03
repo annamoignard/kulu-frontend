@@ -10,7 +10,7 @@ export function CreateSession({ history }) {
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
-      await fetch("http://localhost:3000/sessions", {
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

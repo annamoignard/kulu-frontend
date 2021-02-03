@@ -22,6 +22,21 @@ export function Schedule() {
       });
   }
 
+// test
+function fetchSessions(){
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
+    headers: {
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+  })
+    .then((res) => res.json())
+    .then(({ sessions, instructor }) => {
+      setSession(sessions)
+      setInstructor(instructor)
+    });
+}
+  
   useEffect(() => {
     fetchSessions();
   }, []);
@@ -48,6 +63,16 @@ export function Schedule() {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
+        await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/sessions/${session.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+          }
+        );
         fetchSessions();
       }
     } catch (err) {
@@ -96,6 +121,27 @@ export function Schedule() {
               </ScheduleCards>
             );
           })}
+        {session && session.map((s) => {
+          return (
+            <ScheduleCards key={s.id}>
+              <h2>{s.name}</h2>
+              <p>{s.time}</p>
+              <p>{s.cost}$</p>
+              <p>{s.instructor}</p>
+              <p>{s.minutes}minutes</p>
+              <Link to="/new-booking"> Book Now</Link>
+              {instructor && (
+                <>
+                  <Link to={`/session/${s.id}/update`}>Update</Link>
+                  <Link to="/create-session">Add Class</Link>
+                  <Link onClick={(e) => onDeleteLinkClick(e, s)}
+                  to={`/session/${s.id}`}>Remove</Link>
+                </>
+              )
+              }
+            </ScheduleCards>
+          );
+        })}
       </ScheduleContainer>
     </>
   );

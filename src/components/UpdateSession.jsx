@@ -11,7 +11,7 @@ export function UpdateSession() {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/sessions/${id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -28,7 +28,7 @@ export function UpdateSession() {
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
-      await fetch(`http://localhost:3000/sessions/${id}`, {
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
