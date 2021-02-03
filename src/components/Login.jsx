@@ -7,7 +7,9 @@ export function Login({ history }) {
   const [password, setPassword] = useState("");
   const [errMessage, setErrMessage] = useState("");
 
+  
   async function onFormSubmit(event) {
+    console.log(process.env.REACT_APP_BACKEND_URL)
     event.preventDefault();
     const body = {
       auth: { email, password },

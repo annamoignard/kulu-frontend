@@ -8,7 +8,6 @@ const stripePromise = loadStripe(
 );
 
 export function NewBooking({ history, location }) {
-  console.log(location.state)
   const [session, setSession] = useState("");
   const [date, setDate] = useState("");
   const [clientName, setClientName] = useState("");
