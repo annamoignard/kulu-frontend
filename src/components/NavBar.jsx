@@ -1,23 +1,39 @@
-import React from "react";
-import { useHistory } from 'react-router-dom'; 
-import { Nav, NavLink } from '../styles/Nav'; 
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import { Nav, NavLink } from '../styles/Nav';
 
-export function NavBar() {
+export function NavBar(props) {
   const history = useHistory()
 
   function logout(e) {
     e.preventDefault();
     localStorage.removeItem("token");
-    history.push("/home") 
+    history.push("/login")
   }
 
-  return (
-    <Nav>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/sign-up">Sign Up</NavLink>
-      <NavLink to="/schedule">Timetable</NavLink>
-      <NavLink to="/" onClick={logout}>Logout</NavLink> 
-    </Nav>
-  );
+  if (!props.auth) {
+    return (
+      <>
+        <Nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/schedule">Timetable</NavLink>
+          <NavLink to="/" onClick={logout}>Logout</NavLink>
+        </Nav>
+        {props.children}
+      </>
+    )
+  } else {
+    return (
+      <Nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/schedule">Timetable</NavLink>
+        {props.isInstructor && (
+          <>
+            <NavLink to="/create-session">Add Class</NavLink>
+          </>
+        )}
+        <NavLink to="/" onClick={logout}>Logout</NavLink>
+      </Nav>
+    );
+  }
 }
