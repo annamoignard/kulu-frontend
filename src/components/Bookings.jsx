@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
+
+
 export function Bookings() {
     const [booking, setBooking] = useState([]);
     const [client, setClient] = useState(false);
