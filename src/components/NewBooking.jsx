@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "../styles/NewBooking";
+// import { Form } from "../styles/NewBooking";
 import { loadStripe } from "@stripe/stripe-js";
 
 //stripe publishable key- Load Stripe.js
@@ -52,15 +52,26 @@ export function NewBooking({ history, location }) {
       console.log(err.message);
     }
   }
-
-  // Client can view their booking and pay for the class 
+  // Client can view their booking and pay for the class
   return (
     <>
-      <h1>Your Booking</h1>
-      <h2>{location.state.name}</h2>
-      <h2>{location.state.time}</h2>
-      <h2>{location.state.instructor}</h2>
+      <h2>Your Booking</h2>
+      <h3>{location.state.name}</h3>
+      <h3>{location.state.time}</h3>
+      <h3>{location.state.instructor}</h3>
+      <h1>Book Class</h1>
+      <h3>$25</h3>
+      
+      <button
+        type="button"
+        id="checkout-button"
+        role="link"
+        onClick={onFormSubmit}
+      >
+        Checkout
+      </button>
 
+      {/* 
       <Form onSubmit={onFormSubmit}></Form>
       <Form>
         <div className="form-group">
@@ -74,16 +85,8 @@ export function NewBooking({ history, location }) {
             onChange={(e) => setClientName(e.target.value)}
           />
         </div>
-      </Form>
-      <h1>Book Class $25</h1>
-      <button
-        type="button"
-        id="checkout-button"
-        role="link"
-        onClick={onFormSubmit}
-      >
-        Checkout
-      </button>
+      </Form> */}
+      <p>View your booking link</p>
     </>
   );
 }
