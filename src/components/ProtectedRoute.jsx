@@ -5,6 +5,7 @@ import { NavBar } from "./NavBar";
 export function ProtectedRoute({ exact, path, component }) {
   const [auth, setAuth] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isInstructor, setIsInstructor] = useState(false);
 
   useEffect(() => {
     async function checkAuthStatus() {
@@ -17,8 +18,10 @@ export function ProtectedRoute({ exact, path, component }) {
         if (response.status >= 400) {
           throw new Error("not authorized");
         } else {
-          const { jwt } = await response.json();
-          localStorage.setItem("token", jwt);
+          const { instructor } = await response.json();
+          if (instructor) {
+            setIsInstructor(true)
+          }
           setAuth(true);
           setLoading(false);
         }
@@ -36,7 +39,7 @@ export function ProtectedRoute({ exact, path, component }) {
     return (
       !loading && (
         <>
-          <NavBar />
+          <NavBar isInstructor={isInstructor} />
           <Route exact={exact} path={path} component={component} />
         </>
       )
