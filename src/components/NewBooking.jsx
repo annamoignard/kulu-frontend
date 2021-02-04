@@ -71,22 +71,6 @@ export function NewBooking({ history, location }) {
       >
         Checkout
       </button>
-
-      {/* 
-      <Form onSubmit={onFormSubmit}></Form>
-      <Form>
-        <div className="form-group">
-          <label htmlFor="client-name">Your Name</label>
-          <input
-            type="text"
-            name="client-name"
-            id="client-name"
-            placeholder="Name"
-            value={clientName}
-            onChange={(e) => setClientName(e.target.value)}
-          />
-        </div>
-      </Form> */}
       <p>View your booking link</p>
     </>
   );
