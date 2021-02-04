@@ -59,7 +59,7 @@ export function NewBooking({ history, location }) {
       <h3>{location.state.name}</h3>
       <h3>{location.state.time}</h3>
       <h3>{location.state.instructor}</h3>
-    
+
       <h1>Book Class</h1>
       <h3>$25</h3>
       <button
