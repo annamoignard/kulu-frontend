@@ -55,16 +55,11 @@ export function NewBooking({ history, location }) {
   // Client can view their booking and pay for the class
   return (
     <>
-<<<<<<< HEAD
       {/* <h1>Your Booking</h1>
       <h2>{location.state.name}</h2>
       <h2>{location.state.time}</h2>
       <h2>{location.state.instructor}</h2> */}
-=======
-      <h2>Your Booking</h2>
-      <h3>{location.state.name}</h3>
-      <h3>{location.state.time}</h3>
-      <h3>{location.state.instructor}</h3>
+
       <h1>Book Class</h1>
       <h3>$25</h3>
       
@@ -76,8 +71,6 @@ export function NewBooking({ history, location }) {
       >
         Checkout
       </button>
->>>>>>> 23bc52d8bef672c289c1be4a3b4eeb36261d3cd6
-
       {/* 
       <Form onSubmit={onFormSubmit}></Form>
       <Form>
