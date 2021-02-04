@@ -56,10 +56,10 @@ export function NewBooking({ history, location }) {
   // Client can view their booking and pay for the class 
   return (
     <>
-      <h1>Your Booking</h1>
+      {/* <h1>Your Booking</h1>
       <h2>{location.state.name}</h2>
       <h2>{location.state.time}</h2>
-      <h2>{location.state.instructor}</h2>
+      <h2>{location.state.instructor}</h2> */}
 
       <Form onSubmit={onFormSubmit}></Form>
       <Form>

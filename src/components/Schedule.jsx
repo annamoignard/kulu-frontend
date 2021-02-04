@@ -8,7 +8,7 @@ export function Schedule() {
   const [instructor, setInstructor] = useState(false);
   // const id = props.match.params.id;
 
-  // test
+
   function fetchSessions() {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
       headers: {

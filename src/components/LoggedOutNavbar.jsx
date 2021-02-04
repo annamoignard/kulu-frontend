@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom'; 
+import { Nav, NavLink } from '../styles/Nav';
 
 export function LoggedOutNavbar() {
   return (
-    <nav>
-      <Link to="/login">Login</Link>
-      <Link to="/sign-up">Sign Up</Link>
-    </nav>
+    <Nav>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/sign-up">Sign Up</NavLink>
+    </Nav>
   );
 }
