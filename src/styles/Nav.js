@@ -1,15 +1,18 @@
-import styled from 'styled-components' 
-import { Link } from "react-router-dom"; 
+import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
-export const Nav = styled.nav `
+export const Nav = styled.nav`
 display: flex; 
-justify-content: space-between; 
-margin-top: 0; 
+justify-content: flex-start; 
+margin-top: 5px;
+margin-bottom: 10px; 
 font-family: 'Poppins', sans-serif;`
 
-export const NavLink = styled(Link) `
+export const NavLink = styled(Link)`
 text-decoration: none; 
+margin: 20px; 
 color: darkgray; 
+font-size: 20px; 
 :hover {
   color: darkslateblue; 
 }

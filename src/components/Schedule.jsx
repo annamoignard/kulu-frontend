@@ -57,9 +57,9 @@ export function Schedule() {
             <ScheduleCards key={s.id}>
               <h2>{s.name}</h2>
               <p>{s.time}</p>
-              <p>{s.cost}$</p>
-              <p>{s.instructor}</p>
               <p>{s.date}</p>
+              <p>${s.cost}</p>
+              <p>{s.instructor_id}</p>
               <p>{s.minutes}minutes</p>
               {/* path for newbooking file */}
               <Link

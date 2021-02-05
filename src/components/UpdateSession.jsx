@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { Form } from '../styles/Form'; 
 
 export function UpdateSession() {
   const [name, setName] = useState("Vinyasa Flow");
@@ -55,7 +56,7 @@ export function UpdateSession() {
     (
       <>
         <h1>Edit Session</h1>
-        <form onSubmit={onFormSubmit}>
+        <Form onSubmit={onFormSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <select
@@ -100,7 +101,7 @@ export function UpdateSession() {
             />
           </div>
           <input id="submit" type="submit" value="Submit" />
-        </form>
+        </Form>
       </>
     )
   )
