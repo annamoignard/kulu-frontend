@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 import { Home } from './Home';
 import { Schedule } from './Schedule';
 import { Bookings } from './Bookings';
+import { ClientBookings } from './ClientBookings';
 import { NewBooking } from './NewBooking';
 import { NavBar } from './NavBar';
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <ProtectedRoute exact path="/new-booking" component={NewBooking} />
         <ProtectedRoute exact path="/bookings" component={Bookings} />
+        <ProtectedRoute exact path="/client-booking" component={ClientBookings} />
         <ProtectedRoute exact path="/create-session" component={CreateSession} />
         <ProtectedRoute exact path="/session/:id/update" component={UpdateSession} />
         <Route exact path="/login" component={Login} />

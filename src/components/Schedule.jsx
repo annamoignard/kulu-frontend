@@ -59,14 +59,17 @@ export function Schedule() {
               <p>{s.time}</p>
               <p>{s.cost}$</p>
               <p>{s.instructor}</p>
+              <p>{s.date}</p>
               <p>{s.minutes}minutes</p>
+              {/* path for newbooking file */}
               <Link
                 to={{
                   pathname: "/new-booking",
                   state: {
                     name: s.name,
                     time: s.time,
-                    instructor: s.instructor,                    
+                    instructor: s.instructor,  
+                    date: s.date                  
                   },
                 }}
               >
