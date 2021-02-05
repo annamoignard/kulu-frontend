@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form } from '../styles/Form';  
 
 export function CreateSession({ history }) {
   const [name, setName] = useState("Vinyasa Flow");
@@ -36,7 +37,7 @@ export function CreateSession({ history }) {
   return (
     <>
       <h1>Add Class</h1>
-      <form onSubmit={onFormSubmit}>
+      <Form onSubmit={onFormSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <select
@@ -94,7 +95,7 @@ export function CreateSession({ history }) {
           onChange={(e) => setMinutes(e.target.value)}
         />
       <input id="submit" type="submit" value="Submit" />
-    </form >
+    </Form >
     </>
   );
 } 

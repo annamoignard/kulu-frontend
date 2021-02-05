@@ -25,4 +25,4 @@ export const Form = styled.form`
     height: 40px;
     margin: 10px 0px;
   }
-`;
+`

@@ -1,21 +1,27 @@
 import React from 'react';
-import { HomeImg, KuluLogo, LogoContainer } from '../styles/Homepage'; 
-import kuluhome from '../assets/kuluhome.jpg';
+import { HomeImg, KuluLogo, LogoContainer, BookButton } from '../styles/Homepage';
+import { ContactContainer, Contact, Phone, Email, Location } from '../styles/Contact';
+import { Link } from 'react-router-dom';
 import kululogo from '../assets/kululogo.png';
 
 
-export function Home(){
-  return ( 
+export function Home() {
+  return (
     <>
-    <LogoContainer>
-      <KuluLogo>
+      {/* <KuluLogo>
       <img src={kululogo} style={{ borderRadius: "50%" }} />
-      </KuluLogo>
-    </LogoContainer>
-
-    <HomeImg>
-      <img src={kuluhome} />
-    </HomeImg>
+      </KuluLogo> */}
+      <HomeImg>
+        <LogoContainer>
+          <BookButton to="/schedule">Join Us</BookButton>
+        </LogoContainer>
+      </HomeImg>
+      <ContactContainer>
+    <Contact> Contact Us</Contact>
+    <Phone>Phone: </Phone>
+        <Email>Email: </Email>
+        <Location>Location: </Location>
+      </ContactContainer>
     </>
-    );
-  }
+  );
+}
