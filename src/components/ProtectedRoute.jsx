@@ -32,14 +32,14 @@ export function ProtectedRoute({ exact, path, component }) {
     }
     checkAuthStatus();
   }, []);
-
+console.log(isInstructor)
   if (!loading && !auth) {
     return <Redirect to="/login" />;
   } else {
     return (
       !loading && (
         <>
-          <NavBar isInstructor={isInstructor} />
+          <NavBar isInstructor={isInstructor} auth={true} />
           <Route exact={exact} path={path} component={component} />
         </>
       )

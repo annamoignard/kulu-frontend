@@ -14,7 +14,6 @@ export function Bookings() {
       .then((res) => res.json())
       .then((body) => {
         setBookings(body.bookings);
-        console.log(body);
       });
   }
   useEffect(() => {
@@ -38,7 +37,6 @@ export function Bookings() {
   //     console.log(err.message);
   //   }
   // }
-  console.log(bookings);
   return (
     <div>
       <h1>Bookings</h1>

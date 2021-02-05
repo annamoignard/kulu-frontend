@@ -35,7 +35,6 @@ export function ClientBookings() {
         fetchClientBookings();
       }
     } catch (err) {
-      console.log(err.message);
     }
   }
 

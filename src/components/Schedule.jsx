@@ -44,10 +44,9 @@ export function Schedule() {
         fetchSessions();
       }
     } catch (err) {
-      console.log(err.message);
     }
   }
-  console.log(session)
+
   return (
     <>
       <Title>Timetable</Title>
@@ -59,7 +58,7 @@ export function Schedule() {
               <p>{s.time}</p>
               <p>{s.date}</p>
               <p>${s.cost}</p>
-              <p>{s.instructor_id}</p>
+              <p>{s.instructor_name}</p>
               <p>{s.minutes}minutes</p>
               {/* path for newbooking file */}
               <Link

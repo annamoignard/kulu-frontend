@@ -30,7 +30,6 @@ export function CreateSession({ history }) {
       // this is like using redirect_to
       history.push("/schedule");
     } catch (err) {
-      console.log(err.message);
     }
   }
 
