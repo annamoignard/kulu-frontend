@@ -46,7 +46,7 @@ export function NewBooking({ history, location }) {
       //     });
       history.push("/bookings");
     } catch (err) {
-      console.log(err.message);
+
     }
   }
   // Client can view their booking and pay for the class

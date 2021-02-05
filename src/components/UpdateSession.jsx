@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Form } from '../styles/Form'; 
+import { Form } from '../styles/Form';
 
 export function UpdateSession() {
   const [name, setName] = useState("Vinyasa Flow");
@@ -8,6 +8,8 @@ export function UpdateSession() {
   const [time, setTime] = useState("");
   const [minutes, setMinutes] = useState("");
   const [cost, setCost] = useState("");
+  const [day, setDay] = useState("Monday");
+  const [instructor_name, setInstructorname] = useState("Instructor");
   const { id } = useParams();
   const history = useHistory();
 
@@ -23,6 +25,9 @@ export function UpdateSession() {
         setDate(session.date);
         setMinutes(session.minutes);
         setTime(session.time);
+        setCost(session.cost);
+        setDay(session.day)
+        setInstructorname(session.instructor_name);
       })
   }, [id])
 
@@ -41,24 +46,25 @@ export function UpdateSession() {
             date: date,
             time: time,
             minutes: minutes,
-            cost: cost
+            cost: cost,
+            day: day,
+            instructor_name: instructor_name
           },
         }),
       });
       // redirect_to
       history.push("/schedule");
     } catch (err) {
-      console.log(err.message);
     }
   }
 
   return (
     (
       <>
-        <h1>Edit Session</h1>
+        <h1>Update Class</h1>
         <Form onSubmit={onFormSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Class Type</label>
             <select
               type="text"
               name="name"
@@ -69,6 +75,40 @@ export function UpdateSession() {
               <option value="Vinyasa Flow">Vinyasa Flow</option>
               <option value="Power Flow">Restorative Flow</option>
               <option value="Restorative Flow">Power Flow</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="instructor_name">Instructor</label>
+            <select
+              type="text"
+              name="instructor_name"
+              id="instructor_name"
+              value={instructor_name}
+              onChange={(e) => setInstructorname(e.target.value)}
+            >
+              <option value="Ziggy Love">Ziggy Love</option>
+              <option value="Anna Tamara">Anna Tamara</option>
+              <option value="Chris Scott">Chris Scott</option>
+              <option value="Indigo Love">Indigo Love</option>
+              <option value="Nicole">Nicole</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="day">Day</label>
+            <select
+              type="text"
+              name="day"
+              id="day"
+              value={day}
+              onChange={(e) => setDay(e.target.value)}
+            >
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
             </select>
           </div>
           <div className="form-group">
@@ -89,6 +129,17 @@ export function UpdateSession() {
               id="cost"
               value={cost}
               onChange={(e) => setCost(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="time">Time</label>
+            <input
+              type="time"
+              name="time"
+              id="time"
+              placeholder="6:00am"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
             />
           </div>
           <div className="form-group">

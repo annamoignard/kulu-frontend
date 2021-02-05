@@ -32,7 +32,6 @@ export function SignUp({ history }) {
         history.push("/");
       }
     } catch (err) {
-      console.log(err.message);
     }
   }
 

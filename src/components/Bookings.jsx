@@ -20,6 +20,7 @@ export function Bookings() {
     fetchBookings();
   }, []);
 
+<<<<<<< HEAD
   async function onDeleteLinkClick(e) {
     try {
       e.preventDefault();
@@ -39,6 +40,25 @@ export function Bookings() {
     }
   }
   console.log(bookings);
+=======
+  // async function onDeleteLinkClick(e, session) {
+  //   try {
+  //     e.preventDefault();
+  //     if (window.confirm("Do you want to drop the class?")) {
+  //       await fetch(`http://localhost:3000/bookings/${booking.id}`, {
+  //         method: "DELETE",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //         },
+  //       });
+  //       fetchBookings();
+  //     }
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // }
+>>>>>>> 9d740d12743d51b9815c76d13837835e43fc3dbd
   return (
     <div>
       <h1>Bookings</h1>

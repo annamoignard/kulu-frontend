@@ -9,7 +9,6 @@ export function Login({ history }) {
 
   
   async function onFormSubmit(event) {
-    console.log(process.env.REACT_APP_BACKEND_URL)
     event.preventDefault();
     const body = {
       auth: { email, password },
@@ -22,7 +21,6 @@ export function Login({ history }) {
         },
         body: JSON.stringify(body),
       });
-      console.log(response)
       if (response.status >= 400) {
         throw new Error("incorrect credentials");
       } else {
