@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-// import { Form } from "../styles/NewBooking";
+import { Link } from "react-router-dom";
+import { Form } from "../styles/NewBooking";
 import { loadStripe } from "@stripe/stripe-js";
 
 //stripe publishable key- Load Stripe.js
-const stripePromise = loadStripe(
-  "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8"
-);
+// const stripePromise = loadStripe(
+//   "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8"
+// );
 
 export function NewBooking({ history, location }) {
-  const [session, setSession] = useState("");
-  const [date, setDate] = useState("");
-  const [clientName, setClientName] = useState("");
-
-  //using localhost:3000 for backend url
+ //using localhost:3000 for backend url
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
@@ -23,31 +20,30 @@ export function NewBooking({ history, location }) {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
-          NewBooking: {
-            session: session,
-            date: date,
-            client_name: clientName,
-          },
+          time: location.state.time, 
+          name: location.state.name,
+          date: location.state.date
         }),
       });
       //fetch stripe payments page using local host
-      const stripe = await stripePromise;
-      const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/charges`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      //     const stripe = await stripePromise;
+      //     const response = await fetch(
+      //       `${process.env.REACT_APP_BACKEND_URL}/charges`,
+      //       {
+      //         method: "POST",
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+      //         },
+      //       }
+      //     );
 
-      const stripeId = await response.json();
-      // //When client clicks "pay" redirect to checkout
-      const result = await stripe.redirectToCheckout({
-        sessionId: stripeId.id,
-      });
+      //     const stripeId = await response.json();
+      //     // //When client clicks "pay" redirect to checkout
+      //     const result = await stripe.redirectToCheckout({
+      //       sessionId: stripeId.id,
+      //     });
+      history.push("/bookings");
     } catch (err) {
       console.log(err.message);
     }
@@ -56,21 +52,53 @@ export function NewBooking({ history, location }) {
   return (
     <>
       <h2>Your Booking</h2>
-      <h3>{location.state.name}</h3>
-      <h3>{location.state.time}</h3>
-      <h3>{location.state.instructor}</h3>
+      <Form onSubmit={onFormSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Class</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            defaultValue={location.state.name}
+            disabled
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Time</label>
+          <input
+            type="text"
+            name="time"
+            id="time"
+            defaultValue={location.state.time}
+            disabled
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Date</label>
+          <input
+            type="text"
+            name="time"
+            id="time"
+            defaultValue={location.state.date}
+            disabled
+          />
+        </div>
+        <input id="submit" type="submit" value="Submit" />
+      </Form>
 
-      <h1>Book Class</h1>
-      <h3>$25</h3>
-      <button
-        type="button"
-        id="checkout-button"
-        role="link"
-        onClick={onFormSubmit}
-      >
-        Checkout
-      </button>
-    <p>View your booking link</p>
+      <div>
+        {/* <h3>Book class $25</h3>
+        <button
+          type="button"
+          id="checkout-button"
+          role="link"
+          onClick={onFormSubmit}
+        >
+          Submit
+        </button> */}
+      </div>
+      <h3>View your bookings</h3>
+      <Link to="/client-booking">Your booked classes</Link>
     </>
   );
 }
