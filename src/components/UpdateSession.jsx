@@ -48,7 +48,6 @@ export function UpdateSession() {
       // redirect_to
       history.push("/schedule");
     } catch (err) {
-      console.log(err.message);
     }
   }
 

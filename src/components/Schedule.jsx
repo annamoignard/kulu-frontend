@@ -44,10 +44,9 @@ export function Schedule() {
         fetchSessions();
       }
     } catch (err) {
-      console.log(err.message);
     }
   }
-  console.log(session)
+
   return (
     <>
       <Title>Timetable</Title>
