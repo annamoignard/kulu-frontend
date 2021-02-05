@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from '../styles/Form';  
+import { Form } from '../styles/Form';
 
 export function CreateSession({ history }) {
   const [name, setName] = useState("Vinyasa Flow");
@@ -7,6 +7,7 @@ export function CreateSession({ history }) {
   const [time, setTime] = useState("");
   const [minutes, setMinutes] = useState("");
   const [cost, setCost] = useState("");
+  const [instructor_name, setInstructorname] = useState("Instructor");
 
   async function onFormSubmit(e) {
     try {
@@ -23,7 +24,8 @@ export function CreateSession({ history }) {
             date: date,
             time: time,
             minutes: minutes,
-            cost: cost
+            cost: cost,
+            instructor_name: instructor_name
           },
         }),
       });
@@ -38,7 +40,7 @@ export function CreateSession({ history }) {
       <h1>Add Class</h1>
       <Form onSubmit={onFormSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Class Type</label>
           <select
             type="text"
             name="name"
@@ -52,47 +54,63 @@ export function CreateSession({ history }) {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="date">Date</label>
-          <input
-            type="date"
-            name="date"
-            id="date"
-            placeholder="01-02-21"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="time">Time</label>
-          <input
-            type="time"
-            name="time"
-            id="time"
-            placeholder="6:00am"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="cost">Price</label>
-          <input
-            type="number"
-            name="cost"
-            id="cost"
-            placeholder="$25"
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
-          />
-        </div>
-        <label htmlFor="minutes">Minutes</label>
-        <input
+        <label htmlFor="instructor_name">Instructor</label>
+        <select
           type="text"
-          name="minutes"
-          id="minutes"
-          placeholder="60"
-          value={minutes}
-          onChange={(e) => setMinutes(e.target.value)}
+          name="instructor_name"
+          id="instructor_name"
+          value={instructor_name}
+          onChange={(e) => setInstructorname(e.target.value)}
+        >
+          <option value="Ziggy Love">Ziggy Love</option>
+          <option value="Anna Tamara">Anna Tamara</option>
+          <option value="Chris Scott">Chris Scott</option>
+          <option value="Indigo Love">Indigo Love</option>
+          <option value="Nicole">Nicole</option>
+        </select>
+        </div>
+      <div className="form-group">
+        <label htmlFor="date">Date</label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          placeholder="01-02-21"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
         />
+      </div>
+      <div className="form-group">
+        <label htmlFor="time">Time</label>
+        <input
+          type="time"
+          name="time"
+          id="time"
+          placeholder="6:00am"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="cost">Price</label>
+        <input
+          type="number"
+          name="cost"
+          id="cost"
+          placeholder="$25"
+          value={cost}
+          onChange={(e) => setCost(e.target.value)}
+        />
+      </div>
+      <label htmlFor="minutes">Minutes</label>
+      <input
+        type="text"
+        name="minutes"
+        id="minutes"
+        placeholder="60"
+        value={minutes}
+        onChange={(e) => setMinutes(e.target.value)}
+      />
       <input id="submit" type="submit" value="Submit" />
     </Form >
     </>
