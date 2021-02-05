@@ -59,7 +59,7 @@ export function Schedule() {
               <p>{s.time}</p>
               <p>{s.date}</p>
               <p>${s.cost}</p>
-              <p>{s.instructor_id}</p>
+              <p>{s.instructor_name}</p>
               <p>{s.minutes}minutes</p>
               {/* path for newbooking file */}
               <Link
@@ -79,7 +79,6 @@ export function Schedule() {
                 {/* what we are saying here is if the condition on the left is true, do the task on the right. so if instructor = true, then render these links  */}
               {instructor && (
                 <>
-                  <Link to="/create-session">Add Class</Link>
                   <Link to={`/session/${s.id}/update`}>Update</Link>
                   <Link onClick={(e) => onDeleteLinkClick(e, s)}
                     to={`/session/${s.id}`}>Remove</Link>
