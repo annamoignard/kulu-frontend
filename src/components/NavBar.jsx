@@ -17,6 +17,7 @@ export function NavBar(props) {
         <Nav>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/schedule">Timetable</NavLink>
+          <NavLink to="/bookings">My Bookings</NavLink>
           <NavLink to="/" onClick={logout}>Logout</NavLink>
         </Nav>
         {props.children}
