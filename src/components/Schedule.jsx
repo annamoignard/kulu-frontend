@@ -58,6 +58,7 @@ export function Schedule() {
               <p>{s.time}</p>
               <p>{s.date}</p>
               <p>${s.cost}</p>
+              <p>${s.day}</p>
               <p>{s.instructor_name}</p>
               <p>{s.minutes}minutes</p>
               {/* path for newbooking file */}
