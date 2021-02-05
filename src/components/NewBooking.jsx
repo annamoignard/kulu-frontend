@@ -25,6 +25,7 @@ export function NewBooking({ history, location }) {
           date: location.state.date
         }),
       });
+      console.log(e)
       //fetch stripe payments page using local host
       //     const stripe = await stripePromise;
       //     const response = await fetch(
@@ -97,8 +98,6 @@ export function NewBooking({ history, location }) {
           Submit
         </button> */}
       </div>
-      <h3>View your bookings</h3>
-      <Link to="/client-booking">Your booked classes</Link>
     </>
   );
 }
