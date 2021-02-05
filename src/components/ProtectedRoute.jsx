@@ -39,7 +39,7 @@ export function ProtectedRoute({ exact, path, component }) {
     return (
       !loading && (
         <>
-          <NavBar isInstructor={isInstructor} />
+          <NavBar isInstructor={isInstructor} auth={true} />
           <Route exact={exact} path={path} component={component} />
         </>
       )
