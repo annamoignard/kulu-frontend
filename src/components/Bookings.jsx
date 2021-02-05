@@ -14,30 +14,30 @@ export function Bookings() {
       .then((res) => res.json())
       .then((body) => {
         setBookings(body.bookings);
-        console.log(body);
       });
   }
   useEffect(() => {
     fetchBookings();
   }, []);
 
-  // async function onDeleteLinkClick(e, session) {
-  //   try {
-  //     e.preventDefault();
-  //     if (window.confirm("Do you want to drop the class?")) {
-  //       await fetch(`http://localhost:3000/bookings/${booking.id}`, {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //       });
-  //       fetchBookings();
-  //     }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // }
+  async function onDeleteLinkClick(e) {
+    try {
+      e.preventDefault();
+      if (window.confirm("Do you want to drop the class?")) {
+        await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/bookings/${bookings.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        fetchBookings();
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
   console.log(bookings);
   return (
     <div>
@@ -51,6 +51,8 @@ export function Bookings() {
           </div>
         );
       })}
+       <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
+      to={`/bookings/${bookings.id}`}>Cancel booking</Link>
     </div>
   );
 }
