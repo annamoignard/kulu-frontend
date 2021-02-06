@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { ScheduleCards, ScheduleContainer, Title } from '../styles/Schedule';
+import { ScheduleCards, ScheduleContainer, Title, Book } from '../styles/Schedule';
+import { KuluLogo } from '../styles/Homepage';
+import kululogo from '../assets/kululogo.png';
 
 
 export function Schedule() {
@@ -49,7 +51,9 @@ export function Schedule() {
 
   return (
     <>
-      <Title>Timetable</Title>
+      <KuluLogo>
+      <img src={kululogo} style={{ borderRadius: "50%" }} />
+      </KuluLogo>
       <ScheduleContainer>
         {session && session.map((s) => {
           return (
@@ -62,7 +66,7 @@ export function Schedule() {
               <p>{s.instructor_name}</p>
               <p>{s.minutes}minutes</p>
               {/* path for newbooking file */}
-              <Link
+              <Book
                 to={{
                   pathname: "/new-booking",
                   state: {
@@ -75,7 +79,7 @@ export function Schedule() {
               >
                 {" "}
                   Book Now
-                </Link> 
+                </Book> 
                 {/* what we are saying here is if the condition on the left is true, do the task on the right. so if instructor = true, then render these links  */}
               {instructor && (
                 <>
