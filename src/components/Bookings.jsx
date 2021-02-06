@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import {
+  OuterCard,
+  InnerCard,
+  CardWrapper,
+  CardLink
+} from "../styles/NewBooking";
+import { KuluLogo } from "../styles/Homepage";
+import kululogo from "../assets/kululogo.png";
 
 export function Bookings() {
   const [bookings, setBookings] = useState([]);
@@ -23,36 +32,48 @@ export function Bookings() {
   async function onDeleteLinkClick(e, bookings) {
     try {
       e.preventDefault();
-      if (window.confirm("Are you sure you want to delete?")) {
+      if (window.confirm("Do you want to delete this class?")) {
         await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/bookings/${bookings.id}`,
           {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
         );
         fetchBookings();
       }
-    } catch (err) {
-    }
+    } catch (err) {}
   }
   return (
-    <div>
-      <h1>Bookings</h1>
-      {bookings.map((booking) => {
-        return (
-          <div>
-            <p>{booking.name}</p>
-            <p>{booking.date}</p>
-            <p>{booking.time}</p>
-          </div>
-        );
-      })}
-      <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
-      to={`/bookings/${bookings.id}`}>Cancel booking</Link>
-    </div>
+    <>
+      <KuluLogo>
+        <img src={kululogo} style={{ borderRadius: "50%" }} />
+      </KuluLogo>
+      <div>
+        <h1>Your Kulu Bookings</h1>
+        <CardWrapper>
+          {bookings.map((booking) => {
+            return (
+              <OuterCard key={bookings.id}>
+                <InnerCard>
+                  <p>{booking.name}</p>
+                  <p>{booking.date}</p>
+                  <p>{booking.time}</p>
+                  <CardLink
+                    onClick={(e) => onDeleteLinkClick(e, bookings)}
+                    to={`/bookings/${bookings.id}`}
+                  >
+                    Cancel Booking
+                  </CardLink>
+                </InnerCard>
+              </OuterCard>
+            );
+          })}
+        </CardWrapper>
+      </div>
+    </>
   );
 }

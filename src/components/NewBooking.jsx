@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form } from "../styles/NewBooking";
-import { loadStripe } from "@stripe/stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 
 //stripe publishable key- Load Stripe.js
 // const stripePromise = loadStripe(
