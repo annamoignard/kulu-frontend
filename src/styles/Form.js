@@ -1,28 +1,36 @@
 import styled from "styled-components";
 
+
+export const Title = styled.h1`
+ font-family: 'Poppins', sans-serif;
+ text-align: center; 
+ `
+
+export const FormContainer = styled.div`
+display: flex; 
+align-items: center;
+justify-content: center; 
+`
+
+export const TextBox = styled.input`
+width: 300px;
+font-family: 'Poppins', sans-serif;
+ `
+
+export const Button = styled.input`
+width: 100px; 
+margin-top: 25px; 
+padding: 5px; 
+font-size: 18px; 
+`
+
+export const Label = styled.label`
+margin: 5px; 
+font-size: 20px; 
+font-family: 'Poppins', sans-serif;
+`
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0px;
-    label {
-      font-size: x-large;
-      margin-bottom: 5px;
-    }
-    input {
-      height: 25px;
-      font-size: 20px;
-    }
-    select {
-      height: 30px;
-      font-size: 20px;
-    }
-  }
-  #submit {
-    width: 100px;
-    height: 40px;
-    margin: 10px 0px;
-  }
-`
+  align-items: center; `

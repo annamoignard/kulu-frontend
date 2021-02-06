@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { LoggedOutNavbar } from './LoggedOutNavbar.jsx'
-import { Form } from '../styles/Form'; 
+import { Form, Title, Button, TextBox, Label, FormContainer} from '../styles/Form'; 
+import { KuluLogo } from '../styles/Homepage';
+import kululogo from '../assets/kululogo.png';
 
 export function Login({ history }) {
   const [email, setEmail] = useState("");
@@ -36,27 +38,32 @@ export function Login({ history }) {
   return (
     <>
       <LoggedOutNavbar />
-      <h1>Login</h1>
+            <KuluLogo>
+      <img src={kululogo} style={{ borderRadius: "50%" }} />
+      </KuluLogo>
+      <Title>Login</Title>
+      <FormContainer>
       {errMessage && <span>{errMessage}</span>}
       <Form onSubmit={onFormSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
+        <Label htmlFor="email">Email</Label>
+        <TextBox
           type="email"
           name="email"
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
-        <input
+        <Label htmlFor="password">Password</Label>
+        <TextBox
           type="password"
           name="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Submit" />
+        <Button type="submit" value="Submit" />
       </Form>
+      </FormContainer>
     </>
   );
 }

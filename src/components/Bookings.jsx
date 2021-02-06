@@ -51,7 +51,7 @@ export function Bookings() {
           </div>
         );
       })}
-       <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
+      <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
       to={`/bookings/${bookings.id}`}>Cancel booking</Link>
     </div>
   );
