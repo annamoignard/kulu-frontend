@@ -20,13 +20,11 @@ export function Bookings() {
     fetchBookings();
   }, []);
 
-<<<<<<< HEAD
-  async function onDeleteLinkClick(e) {
+  async function onDeleteLinkClick(e, booking) {
     try {
       e.preventDefault();
       if (window.confirm("Do you want to drop the class?")) {
-        await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/bookings/${bookings.id}`, {
+        await fetch(`http://localhost:3000/bookings/${booking.id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -39,26 +37,6 @@ export function Bookings() {
       console.log(err.message);
     }
   }
-  console.log(bookings);
-=======
-  // async function onDeleteLinkClick(e, session) {
-  //   try {
-  //     e.preventDefault();
-  //     if (window.confirm("Do you want to drop the class?")) {
-  //       await fetch(`http://localhost:3000/bookings/${booking.id}`, {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //       });
-  //       fetchBookings();
-  //     }
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // }
->>>>>>> 9d740d12743d51b9815c76d13837835e43fc3dbd
   return (
     <div>
       <h1>Bookings</h1>
@@ -71,7 +49,7 @@ export function Bookings() {
           </div>
         );
       })}
-       <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
+      <Link onClick={(e) => onDeleteLinkClick(e, bookings)}
       to={`/bookings/${bookings.id}`}>Cancel booking</Link>
     </div>
   );
