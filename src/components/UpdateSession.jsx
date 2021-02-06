@@ -26,7 +26,7 @@ export function UpdateSession() {
         setMinutes(session.minutes);
         setTime(session.time);
         setCost(session.cost);
-        setDay(session.day)
+        setDay(session.day);
         setInstructorname(session.instructor_name);
       })
   }, [id])
