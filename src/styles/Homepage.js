@@ -18,8 +18,8 @@ export const LogoContainer = styled.h1 `
 `
 
 export const KuluLogo = styled.div `
-  height: 100px; 
-  width: 100px; 
+  height: 250px; 
+  width: 250px; 
   display: flex; 
   justify-content: flex-end; 
   margin: 0 auto; 
