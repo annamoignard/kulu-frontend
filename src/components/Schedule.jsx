@@ -24,7 +24,6 @@ export function Schedule() {
         setInstructor(instructor)
       });
   }
-
   useEffect(() => {
     fetchSessions();
   }, []);
