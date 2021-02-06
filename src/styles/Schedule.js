@@ -16,6 +16,7 @@ export const Book = styled(Link)`
 text-decoration: none; 
 color: darkgray; 
 text-align: center; 
+font-size: 16px; 
 :hover {
   color: #1f7a7a;
 }
