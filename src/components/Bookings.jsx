@@ -20,21 +20,23 @@ export function Bookings() {
     fetchBookings();
   }, []);
 
-  async function onDeleteLinkClick(e, booking) {
+  async function onDeleteLinkClick(e, bookings) {
     try {
       e.preventDefault();
-      if (window.confirm("Do you want to drop the class?")) {
-        await fetch(`http://localhost:3000/bookings/${booking.id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+      if (window.confirm("Are you sure you want to delete?")) {
+        await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/bookings/${bookings.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+          }
+        );
         fetchBookings();
       }
     } catch (err) {
-      console.log(err.message);
     }
   }
   return (
