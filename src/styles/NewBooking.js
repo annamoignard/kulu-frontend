@@ -16,6 +16,7 @@ display: flex;
     input {
       height: 30px;
       font-size: 15px;
+      font-family: 'Poppins', sans-serif;
     }
     select {
       height: 40px;
