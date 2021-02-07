@@ -64,11 +64,11 @@ export function UpdateSession() {
   return (
     (
       <>
-      <UpdateClass>
-        <img src={updateclass} style={{ borderRadius: "50%" }} />
-      </UpdateClass>
-      <FormContainer>
-        <Form onSubmit={onFormSubmit}>
+        <UpdateClass>
+          <img src={updateclass} style={{ borderRadius: "50%" }} />
+        </UpdateClass>
+        <FormContainer>
+          <Form onSubmit={onFormSubmit}>
             <Label htmlFor="name">Class Type</Label>
             <Select
               type="text"
@@ -93,7 +93,7 @@ export function UpdateSession() {
               <option value="Anna Tamara">Anna Tamara</option>
               <option value="Chris Scott">Chris Scott</option>
               <option value="Indigo Love">Indigo Love</option>
-              <option value="Nicole">Nicole</option>
+              <option value="Nicole Young">Nicole Young</option>
             </Select>
             <Label htmlFor="day">Day</Label>
             <Select
@@ -143,8 +143,8 @@ export function UpdateSession() {
               value={minutes}
               onChange={(e) => setMinutes(e.target.value)}
             />
-          <Button id="submit" type="submit" value="Submit" />
-        </Form>
+            <Button id="submit" type="submit" value="Submit" />
+          </Form>
         </FormContainer>
       </>
     )
