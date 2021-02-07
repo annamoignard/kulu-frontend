@@ -26,8 +26,11 @@ export function Login({ history }) {
       if (response.status >= 400) {
         throw new Error("incorrect credentials");
       } else {
-        const { jwt } = await response.json();
+        const { jwt, instructor } = await response.json();
         localStorage.setItem("token", jwt);
+        if (instructor) {
+          localStorage.setItem("instructor", instructor)
+        }
         history.push("/");
       }
     } catch (err) {
