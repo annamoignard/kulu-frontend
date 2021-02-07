@@ -12,7 +12,7 @@ export const ScheduleContainer = styled.div`
   margin-top: 40px; 
   font-family: 'Poppins', sans-serif;`
 
-export const Book = styled(Link)`
+export const Btn = styled(Link)`
 text-decoration: none; 
 color: darkgray; 
 text-align: center; 
