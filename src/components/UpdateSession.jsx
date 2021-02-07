@@ -65,7 +65,7 @@ export function UpdateSession() {
     (
       <>
         <UpdateClass>
-          <img src={updateclass} style={{ borderRadius: "50%" }} />
+          <img src={updateclass} alt="kulu-logo" style={{ borderRadius: "50%" }} />
         </UpdateClass>
         <FormContainer>
           <Form onSubmit={onFormSubmit}>

@@ -50,7 +50,7 @@ export function Schedule() {
   return (
     <>
       <KuluLogo>
-      <img src={kululogo} style={{ borderRadius: "50%" }} />
+      <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <ScheduleContainer>
         {session && session.map((s) => {

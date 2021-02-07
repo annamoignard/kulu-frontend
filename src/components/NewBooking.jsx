@@ -54,7 +54,7 @@ export function NewBooking({ history, location }) {
   return (
     <>
       <BookClass>
-        <img src={bookclass} style={{ borderRadius: "50%" }} />
+        <img src={bookclass} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </BookClass>
       <FormContainer>
       <Form onSubmit={onFormSubmit}>

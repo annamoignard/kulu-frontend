@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Select, Title, Button, TextBox, Label, FormContainer } from '../styles/Form';
+import { Form, Select, Button, TextBox, Label, FormContainer } from '../styles/Form';
 import { AddClass } from '../styles/Form';
 import ADDCLASS from '../assets/ADDCLASS.png';
 
@@ -42,9 +42,8 @@ export function CreateSession({ history }) {
   return (
     <>
       <AddClass>
-        <img src={ADDCLASS} style={{ borderRadius: "50%" }} />
+        <img src={ADDCLASS} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </AddClass>
-      <Title>Add Class</Title>
       <FormContainer>
       <Form onSubmit={onFormSubmit}>
           <Label htmlFor="name">Class Type</Label>

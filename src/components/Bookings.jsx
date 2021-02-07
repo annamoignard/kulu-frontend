@@ -48,7 +48,7 @@ export function Bookings() {
   return (
     <>
       <KuluLogo>
-        <img src={kululogo} style={{ borderRadius: "50%" }} />
+        <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <div>
         <h1>Your Kulu Bookings</h1>
