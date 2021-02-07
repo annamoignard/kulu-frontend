@@ -14,6 +14,6 @@ margin: 20px;
 color: darkgray; 
 font-size: 20px; 
 :hover {
-  color: darkslateblue; 
+  color: navy; 
 }
 `

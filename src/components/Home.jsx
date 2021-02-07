@@ -1,7 +1,6 @@
 import React from 'react';
-import { HomeImg, KuluLogo, LogoContainer, BookButton } from '../styles/Homepage';
+import { HomeImg, LogoContainer, BookButton } from '../styles/Homepage';
 import { ContactContainer, Contact, Phone, Email, Location } from '../styles/Contact';
-import { Link } from 'react-router-dom';
 
 
 

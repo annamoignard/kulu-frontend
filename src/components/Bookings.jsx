@@ -8,20 +8,19 @@ import {
 import { KuluLogo } from "../styles/Homepage";
 import kululogo from "../assets/kululogo.png";
 
-
 export function Bookings() {
-  const [booking, setBooking] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
   function fetchBookings() {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/bookings`, {
+    fetch("http://localhost:3000/bookings", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     })
       .then((res) => res.json())
-      .then(({bookings}) => {
-        setBooking(bookings);
+      .then((body) => {
+        setBookings(body.bookings);
       });
   }
   useEffect(() => {
@@ -54,17 +53,16 @@ export function Bookings() {
       <div>
         <h1>Your Kulu Bookings</h1>
         <CardWrapper>
-          {booking && booking.map((b) => {
+          {bookings && bookings.map((booking) => {
             return (
-              <OuterCard key={b.id}>
+              <OuterCard key={booking.id}>
                 <InnerCard>
-                  <p>{b.name}</p>
-                  <p>{b.date}</p>
-                  <p>{b.time}</p>
-                  <p>{b.day}</p>
+                  <p>{booking.name}</p>
+                  <p>{booking.date}</p>
+                  <p>{booking.time}</p>
                   <CardLink
-                    onClick={(e) => onDeleteLinkClick(e, b)}
-                    to={`/booking/${b.id}`}
+                    onClick={(e) => onDeleteLinkClick(e, booking)}
+                    to={`/bookings/${booking.id}`}
                   >
                     Cancel Booking
                   </CardLink>
