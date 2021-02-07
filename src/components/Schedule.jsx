@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import { ScheduleCards, ScheduleContainer, Btn } from '../styles/Schedule';
 import { KuluLogo } from '../styles/Homepage';
 import kululogo from '../assets/kululogo.png';
