@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 import {
   OuterCard,
   InnerCard,
@@ -29,12 +27,12 @@ export function Bookings() {
     fetchBookings();
   }, []);
 
-  async function onDeleteLinkClick(e, bookings) {
+  async function onDeleteLinkClick(e, booking) {
     try {
       e.preventDefault();
       if (window.confirm("Do you want to delete this class?")) {
         await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/bookings/${bookings.id}`,
+          `${process.env.REACT_APP_BACKEND_URL}/bookings/${booking.id}`,
           {
             method: "DELETE",
             headers: {
@@ -50,21 +48,21 @@ export function Bookings() {
   return (
     <>
       <KuluLogo>
-        <img src={kululogo} style={{ borderRadius: "50%" }} />
+        <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <div>
         <h1>Your Kulu Bookings</h1>
         <CardWrapper>
-          {bookings.map((booking) => {
+          {bookings && bookings.map((booking) => {
             return (
-              <OuterCard key={bookings.id}>
+              <OuterCard key={booking.id}>
                 <InnerCard>
                   <p>{booking.name}</p>
                   <p>{booking.date}</p>
                   <p>{booking.time}</p>
                   <CardLink
-                    onClick={(e) => onDeleteLinkClick(e, bookings)}
-                    to={`/bookings/${bookings.id}`}
+                    onClick={(e) => onDeleteLinkClick(e, booking)}
+                    to={`/bookings/${booking.id}`}
                   >
                     Cancel Booking
                   </CardLink>

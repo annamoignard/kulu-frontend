@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Form } from "../styles/NewBooking";
+import { Form, Button, TextBox, Label, FormContainer } from '../styles/Form';
+import { BookClass } from '../styles/Form';
+import bookclass from '../assets/bookclass.png';
+
 // import { loadStripe } from "@stripe/stripe-js";
 
 //stripe publishable key- Load Stripe.js
@@ -52,40 +53,38 @@ export function NewBooking({ history, location }) {
   // Client can view their booking and pay for the class
   return (
     <>
-      <h2>Your Booking</h2>
+      <BookClass>
+        <img src={bookclass} alt="kulu-logo" style={{ borderRadius: "50%" }} />
+      </BookClass>
+      <FormContainer>
       <Form onSubmit={onFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Class</label>
-          <input
+          <Label htmlFor="name">Class</Label>
+          <TextBox
             type="text"
             name="name"
             id="name"
             defaultValue={location.state.name}
             disabled
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Time</label>
-          <input
+          <Label htmlFor="name">Time</Label>
+          <TextBox
             type="text"
             name="time"
             id="time"
             defaultValue={location.state.time}
             disabled
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Date</label>
-          <input
+          <Label htmlFor="name">Date</Label>
+          <TextBox
             type="text"
             name="time"
             id="time"
             defaultValue={location.state.date}
             disabled
           />
-        </div>
-        <input id="submit" type="submit" value="Submit" />
+        <Button id="submit" type="submit" value="Submit" />
       </Form>
+      </FormContainer>
 
       <div>
         {/* <h3>Book class $25</h3>

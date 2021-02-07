@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form } from '../styles/Form';
+import { Form, Select, Button, TextBox, Label, FormContainer } from '../styles/Form';
+import { AddClass } from '../styles/Form';
+import ADDCLASS from '../assets/ADDCLASS.png';
 
 export function CreateSession({ history }) {
   const [name, setName] = useState("Vinyasa Flow");
@@ -39,11 +41,13 @@ export function CreateSession({ history }) {
 
   return (
     <>
-      <h1>Add Class</h1>
+      <AddClass>
+        <img src={ADDCLASS} alt="kulu-logo" style={{ borderRadius: "50%" }} />
+      </AddClass>
+      <FormContainer>
       <Form onSubmit={onFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Class Type</label>
-          <select
+          <Label htmlFor="name">Class Type</Label>
+          <Select
             type="text"
             name="name"
             id="name"
@@ -53,11 +57,9 @@ export function CreateSession({ history }) {
             <option value="Vinyasa Flow">Vinyasa Flow</option>
             <option value="Power Flow">Restorative Flow</option>
             <option value="Restorative Flow">Power Flow</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="instructor_name">Instructor</label>
-          <select
+          </Select>
+          <Label htmlFor="instructor_name">Instructor</Label>
+          <Select
             type="text"
             name="instructor_name"
             id="instructor_name"
@@ -69,11 +71,9 @@ export function CreateSession({ history }) {
             <option value="Chris Scott">Chris Scott</option>
             <option value="Indigo Love">Indigo Love</option>
             <option value="Nicole">Nicole</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="day">Day</label>
-          <select
+          </Select>
+          <Label htmlFor="day">Day</Label>
+          <Select
             type="text"
             name="day"
             id="day"
@@ -87,11 +87,9 @@ export function CreateSession({ history }) {
             <option value="Friday">Friday</option>
             <option value="Saturday">Saturday</option>
             <option value="Sunday">Sunday</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="date">Date</label>
-          <input
+          </Select>
+          <Label htmlFor="date">Date</Label>
+          <TextBox
             type="date"
             name="date"
             id="date"
@@ -99,10 +97,8 @@ export function CreateSession({ history }) {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="time">Time</label>
-          <input
+          <Label htmlFor="time">Time</Label>
+          <TextBox
             type="time"
             name="time"
             id="time"
@@ -110,10 +106,8 @@ export function CreateSession({ history }) {
             value={time}
             onChange={(e) => setTime(e.target.value)}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="cost">Price</label>
-          <input
+          <Label htmlFor="cost">Price</Label>
+          <TextBox
             type="number"
             name="cost"
             id="cost"
@@ -121,9 +115,8 @@ export function CreateSession({ history }) {
             value={cost}
             onChange={(e) => setCost(e.target.value)}
           />
-        </div>
-        <label htmlFor="minutes">Minutes</label>
-        <input
+        <Label htmlFor="minutes">Minutes</Label>
+        <TextBox
           type="text"
           name="minutes"
           id="minutes"
@@ -131,8 +124,9 @@ export function CreateSession({ history }) {
           value={minutes}
           onChange={(e) => setMinutes(e.target.value)}
         />
-        <input id="submit" type="submit" value="Submit" />
+        <Button id="submit" type="submit" value="Submit" />
       </Form >
+      </FormContainer>
     </>
   );
 } 

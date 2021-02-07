@@ -41,9 +41,10 @@ export function SignUp({ history }) {
     <>
       <LoggedOutNavbar />
       <KuluLogo>
-        <img src={kululogo} style={{ borderRadius: "50%" }} />
+        <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <Title>Sign Up</Title>
+      <FormContainer>
       <Form onSubmit={onFormSubmit}>
         <Label htmlFor="username">Username</Label>
         <TextBox
@@ -71,6 +72,7 @@ export function SignUp({ history }) {
         />
         <Button type="submit" value="Submit" />
       </Form>
+      </FormContainer>
     </>
   );
 }
