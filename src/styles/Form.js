@@ -9,7 +9,7 @@ export const Title = styled.h1`
 
 export const FormContainer = styled.div`
 display: flex; 
-align-items: center;
+/* align-items: center; */
 justify-content: center; 
 flex-direction: column; 
 `
@@ -54,6 +54,15 @@ export const BookClass = styled.div`
   margin: 0 auto; 
   margin-bottom: 0px; 
 `
+
+export const UpdateClass = styled.div`
+  height: 500px; 
+  width: 500px; 
+  display: flex; 
+  margin: 0 auto; 
+  margin-bottom: 0px; 
+`
+
 
 export const Select = styled.select`
 width: 400px;

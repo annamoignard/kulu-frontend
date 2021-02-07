@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Form, Select, Title, Button, TextBox, Label, FormContainer } from '../styles/Form';
+import { Form, Button, TextBox, Label, FormContainer } from '../styles/Form';
 import { BookClass } from '../styles/Form';
 import bookclass from '../assets/bookclass.png';
 
@@ -57,7 +56,7 @@ export function NewBooking({ history, location }) {
       <BookClass>
         <img src={bookclass} style={{ borderRadius: "50%" }} />
       </BookClass>
-      <Title>Your Booking</Title>
+      <FormContainer>
       <Form onSubmit={onFormSubmit}>
           <Label htmlFor="name">Class</Label>
           <TextBox
@@ -76,7 +75,7 @@ export function NewBooking({ history, location }) {
             disabled
           />
           <Label htmlFor="name">Date</Label>
-          <input
+          <TextBox
             type="text"
             name="time"
             id="time"
@@ -85,6 +84,7 @@ export function NewBooking({ history, location }) {
           />
         <Button id="submit" type="submit" value="Submit" />
       </Form>
+      </FormContainer>
 
       <div>
         {/* <h3>Book class $25</h3>
