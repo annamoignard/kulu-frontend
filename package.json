@@ -23,6 +23,7 @@
     "cypress": "cypress open",
     "e2e": "start-server-and-test 'BROWSER=none yarn start' http://localhost:8080 'yarn cypress'"
   },
+  
   "eslintConfig": {
     "extends": [
       "react-app",
