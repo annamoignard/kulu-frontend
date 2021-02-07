@@ -71,7 +71,7 @@ export function Schedule() {
                     name: s.name,
                     time: s.time,
                     instructor: s.instructor,  
-                    date: s.date                  
+                    date: s.date               
                   },
                 }}
               >
