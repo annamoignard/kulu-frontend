@@ -50,7 +50,7 @@ export function Schedule() {
   return (
     <>
       <KuluLogo>
-      <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
+        <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <ScheduleContainer>
         {session && session.map((s) => {
@@ -70,15 +70,16 @@ export function Schedule() {
                   state: {
                     name: s.name,
                     time: s.time,
-                    instructor: s.instructor,  
-                    date: s.date               
+                    instructor: s.instructor,
+                    date: s.date,
+                    day: s.day
                   },
                 }}
               >
                 {" "}
                   Book Now
-                </Btn> 
-                {/* what we are saying here is if the condition on the left is true, do the task on the right. so if instructor = true, then render these links  */}
+                </Btn>
+              {/* what we are saying here is if the condition on the left is true, do the task on the right. so if instructor = true, then render these links  */}
               {instructor && (
                 <>
                   <Btn to={`/session/${s.id}/update`}>Update</Btn>
