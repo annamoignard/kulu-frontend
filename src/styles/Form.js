@@ -20,7 +20,7 @@ font-family: 'Poppins', sans-serif;
 color: navy; 
  `
 
-export const Button = styled.input`
+export const Button = styled.button`
 width: 100px; 
 margin-top: 15px; 
 padding: 5px; 

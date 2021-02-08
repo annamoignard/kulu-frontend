@@ -27,14 +27,16 @@ export function Success(props) {
     booking && (
       <ScheduleContainer>
         <div>
-          <h2>Name: {booking.name}</h2>
-          <p>Time: {booking.time}</p>
-          <p>Day: {booking.day}</p>
-          <p>Price: ${booking.cost}</p>
+          <h2>{booking.name}</h2>
+          <p>{booking.time}</p>
+          <p>{booking.day}</p>
+          <p>${booking.cost}</p>
         </div>
+        <>
         <Btn to="/bookings">
           My Bookings
         </Btn>
+        </>
       </ScheduleContainer>
     )
   );

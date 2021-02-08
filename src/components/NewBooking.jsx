@@ -98,14 +98,14 @@ export function NewBooking({ history, location }) {
       </FormContainer>
 
       <div>
-        <button
+        <Button
           type="button"
           id="checkout-button"
           role="link"
           onClick={onFormSubmit}
         >
           Submit
-        </button>
+        </Button>
       </div>
     </>
   );
