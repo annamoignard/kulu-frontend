@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from '../styles/Form';
-
+import { ScheduleCards, ScheduleContainer} from '../styles/Schedule';
 
 export function Success(props) {
   const [booking, setBooking] = useState(null);
@@ -25,7 +25,7 @@ export function Success(props) {
 
   return (
     booking && (
-      <>
+      <ScheduleContainer>
         <div>
           <h2>Name: {booking.name}</h2>
           <p>Time: {booking.time}</p>
@@ -35,7 +35,7 @@ export function Success(props) {
         <Button to="/bookings">
           My Bookings
         </Button>
-      </>
+      <ScheduleContainer/>
     )
   );
 }
