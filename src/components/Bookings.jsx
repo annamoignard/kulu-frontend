@@ -12,7 +12,7 @@ export function Bookings() {
   const [bookings, setBookings] = useState([]);
 
   function fetchBookings() {
-    fetch("http://localhost:3000/bookings", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/bookings`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,8 +58,9 @@ export function Bookings() {
               <OuterCard key={booking.id}>
                 <InnerCard>
                   <p>{booking.name}</p>
-                  <p>{booking.date}</p>
+                  <p>{booking.day}</p>
                   <p>{booking.time}</p>
+                  <p>{booking.date}</p>
                   <CardLink
                     onClick={(e) => onDeleteLinkClick(e, booking)}
                     to={`/bookings/${booking.id}`}
