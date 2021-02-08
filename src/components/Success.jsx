@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Button } from '../styles/Form';
-import { ScheduleCards, ScheduleContainer} from '../styles/Schedule';
+import React, { useEffect, useState} from "react";
+import { Btn } from '../styles/Schedule';
+import { ScheduleContainer} from '../styles/Schedule';
 
 export function Success(props) {
   const [booking, setBooking] = useState(null);
@@ -32,10 +32,10 @@ export function Success(props) {
           <p>Day: {booking.day}</p>
           <p>Price: ${booking.cost}</p>
         </div>
-        <Button to="/bookings">
+        <Btn to="/bookings">
           My Bookings
-        </Button>
-      <ScheduleContainer/>
+        </Btn>
+      </ScheduleContainer>
     )
   );
 }
