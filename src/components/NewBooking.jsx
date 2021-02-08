@@ -92,12 +92,12 @@ export function NewBooking({ history, location }) {
           />
         <>
         <h3>$25</h3>
-        <Button id="checkout-button" type="submit" value="Submit" />
+        {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
         </>
       </Form>
       </FormContainer>
 
-      {/* <div>
+      <div>
         <button
           type="button"
           id="checkout-button"
@@ -106,7 +106,7 @@ export function NewBooking({ history, location }) {
         >
           Submit
         </button>
-      </div> */}
+      </div>
     </>
   );
 }

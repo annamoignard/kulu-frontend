@@ -4,9 +4,9 @@ import { Button } from '../styles/Form';
 
 export function Success(props) {
   const [booking, setBooking] = useState(null);
-  const id = props.match.params.id;
-
+  
   useEffect(() => {
+    const id = props.match.params.id;
     fetch(`${process.env.REACT_APP_BACKEND_URL}/bookings/${id}`, {
       headers: {
         "Content-Type": "application/json",
@@ -15,9 +15,11 @@ export function Success(props) {
     })
       .then((res) => res.json())
       .then((booking) => {
+        console.log(booking)
         setBooking(booking);
       });
-  }, [id]);
+  }, []);
+
 
   // dangerously semantic html 
 

@@ -20,7 +20,7 @@ function App() {
         <ProtectedRoute exact path="/bookings" component={Bookings} />
         <ProtectedRoute exact path="/create-session" component={CreateSession} />
         <ProtectedRoute exact path="/session/:id/update" component={UpdateSession} />
-        <ProtectedRoute exact path="/success" component={Success} />
+        <ProtectedRoute exact path="/success/:id" component={Success} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
         <NavBar auth={false}>
