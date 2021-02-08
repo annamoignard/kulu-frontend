@@ -6,6 +6,7 @@ import {
   CardLink
 } from "../styles/NewBooking";
 import { KuluLogo } from "../styles/Homepage";
+import { Title } from '../styles/Schedule';
 import kululogo from "../assets/kululogo.png";
 
 export function Bookings() {
@@ -30,7 +31,7 @@ export function Bookings() {
   async function onDeleteLinkClick(e, booking) {
     try {
       e.preventDefault();
-      if (window.confirm("Do you want to delete this class?")) {
+      if (window.confirm("Are you sure you want to cancel? We cannot refund the $25 payment.")) {
         await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/bookings/${booking.id}`,
           {
@@ -51,7 +52,7 @@ export function Bookings() {
         <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <div>
-        <h1>Your Kulu Bookings</h1>
+        <Title>Your Kulu Bookings</Title>
         <CardWrapper>
           {bookings && bookings.map((booking) => {
             return (

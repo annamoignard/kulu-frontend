@@ -56,4 +56,7 @@ export const CardLink = styled(Link)`
   margin-right: 10px;
   text-decoration: none;
   color: crimson;
-`;
+
+:hover {
+font-weight: bold; 
+}`;
