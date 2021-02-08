@@ -14,9 +14,9 @@ export function Home() {
       </HomeImg>
       <ContactContainer>
     <Contact> Contact Us</Contact>
-    <Phone>Phone: </Phone>
-        <Email>Email: </Email>
-        <Location>Location: </Location>
+    <Phone>Phone: 0417 123 456 </Phone>
+        <Email>Email: kuluyoga@studio.com</Email>
+        <Location>Location: 123 Beach Rd, Torquay VIC 3228 </Location>
       </ContactContainer>
     </>
   );

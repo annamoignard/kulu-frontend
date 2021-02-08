@@ -2,7 +2,7 @@ import { Form, Button, TextBox, Label, FormContainer } from '../styles/Form';
 import { BookClass } from '../styles/Form';
 import bookclass from '../assets/bookclass.png';
 import { loadStripe } from "@stripe/stripe-js";
-
+//stripe published key
 const stripePromise = loadStripe(
   "pk_test_51Hh0orKL4jTADfFod2j1PRBdOLlGRr1wbGgfGgs1KnC7VjNJxAJOIEbUC47trUphJw8VsAZ5N4kSNdfKA8FvgaVy00CkIT0WN8"
 );
