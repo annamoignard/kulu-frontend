@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 
 export const Title = styled.h1`
@@ -21,7 +20,7 @@ font-family: 'Poppins', sans-serif;
 color: navy; 
  `
 
-export const Button = styled(Link)`
+export const Button = styled.input`
 width: 100px; 
 margin-top: 15px; 
 padding: 5px; 
