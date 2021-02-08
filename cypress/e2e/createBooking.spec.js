@@ -15,11 +15,5 @@ describe("logs in", () => {
   it("form should have a submit", () => {
     cy.contains("input[type=submit]", "Submit").click();
   });
-  
-  it("Login as student4", () => {
-    cy.get("input[type=email]".type('student4@test.com'))
-    cy.get("input[type=password]".type('pass123'))
-    cy.get("input[type=submit]", "Submit").click();
-});
 
 });
