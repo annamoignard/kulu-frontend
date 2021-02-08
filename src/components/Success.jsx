@@ -35,7 +35,7 @@ export function Success(props) {
         <Button to="/bookings">
           My Bookings
         </Button>
-      <ScheduleContainer/>
+      </ScheduleContainer>
     )
   );
 }
