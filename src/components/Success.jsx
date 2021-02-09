@@ -21,8 +21,8 @@ export function Success(props) {
   }, []);
 
 
-  // dangerously semantic html 
-
+ 
+// this will return our client's new booking, with a link back to view all bookings
   return (
     booking && (
       <ScheduleContainer>

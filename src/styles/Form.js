@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
 
 export const Title = styled.h1`
  font-family: 'Poppins', sans-serif;
