@@ -8,7 +8,7 @@ export const HomeImg = styled.div`
   background-image: url(${kuluhome});
   width: 2000px;
   height: 2000px;
-  background-size: cover; 
+  background-size: center; 
   background-repeat: no-repeat; 
 `
 
