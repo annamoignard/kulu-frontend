@@ -99,7 +99,6 @@ export function NewBooking({ history, location }) {
           />
           <>
             {/* This link will take you to Stripe  */}
-            <h4>Payment for booking</h4>
             <Price>$25</Price>
             {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
           </>
