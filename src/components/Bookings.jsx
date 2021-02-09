@@ -3,10 +3,10 @@ import {
   OuterCard,
   InnerCard,
   CardWrapper,
-  CardLink
+  CardLink,
 } from "../styles/NewBooking";
 import { KuluLogo } from "../styles/Homepage";
-import { Title } from '../styles/Schedule';
+import { Title } from "../styles/Schedule";
 import kululogo from "../assets/kululogo.png";
 
 export function Bookings() {
@@ -31,7 +31,11 @@ export function Bookings() {
   async function onDeleteLinkClick(e, booking) {
     try {
       e.preventDefault();
-      if (window.confirm("Are you sure you want to cancel? We cannot refund the $25 payment.")) {
+      if (
+        window.confirm(
+          "Are you sure you want to cancel? We cannot refund the $25 payment."
+        )
+      ) {
         await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/bookings/${booking.id}`,
           {
@@ -48,32 +52,35 @@ export function Bookings() {
   }
   return (
     <>
+      {/* Client can see their bookings  */}
       <KuluLogo>
         <img src={kululogo} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </KuluLogo>
       <div>
         <Title>Your Kulu Bookings</Title>
         <CardWrapper>
-          {bookings && bookings.map((booking) => {
-            return (
-              <OuterCard key={booking.id}>
-                <InnerCard>
-                  <p>{booking.name}</p>
-                  <p>{booking.day}</p>
-                  <p>{booking.time}</p>
-                  <p>{booking.date}</p>
-                  <CardLink
-                    onClick={(e) => onDeleteLinkClick(e, booking)}
-                    to={`/bookings/${booking.id}`}
-                  >
-                    Cancel Booking
-                  </CardLink>
-                </InnerCard>
-              </OuterCard>
-            );
-          })}
+          {bookings &&
+            bookings.map((booking) => {
+              return (
+                <OuterCard key={booking.id}>
+                  <InnerCard>
+                    <p>{booking.name}</p>
+                    <p>{booking.day}</p>
+                    <p>{booking.time}</p>
+                    <p>{booking.date}</p>
+                    <CardLink
+                      onClick={(e) => onDeleteLinkClick(e, booking)}
+                      to={`/bookings/${booking.id}`}
+                    >
+                      Cancel Booking
+                    </CardLink>
+                  </InnerCard>
+                </OuterCard>
+              );
+            })}
         </CardWrapper>
       </div>
     </>
   );
 }
+

@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavLink } from '../styles/Nav';
+import { Nav, NavLink } from "../styles/Nav";
 
 export function LoggedOutNavbar() {
   return (

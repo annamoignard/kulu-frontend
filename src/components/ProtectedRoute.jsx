@@ -10,17 +10,20 @@ export function ProtectedRoute({ exact, path, component }) {
   useEffect(() => {
     async function checkAuthStatus() {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/status`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/status`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         if (response.status >= 400) {
           throw new Error("not authorized");
         } else {
           const { instructor } = await response.json();
           if (instructor) {
-            setIsInstructor(true)
+            setIsInstructor(true);
           }
           setAuth(true);
           setLoading(false);
@@ -32,7 +35,7 @@ export function ProtectedRoute({ exact, path, component }) {
     }
     checkAuthStatus();
   }, []);
-console.log(isInstructor)
+  console.log(isInstructor);
   if (!loading && !auth) {
     return <Redirect to="/login" />;
   } else {

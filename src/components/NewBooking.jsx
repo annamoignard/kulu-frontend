@@ -1,6 +1,14 @@
-import { Form, PayBtn, TextBox, Label, FormContainer, BtnBox, Price} from '../styles/Form';
-import { BookClass } from '../styles/Form';
-import bookclass from '../assets/bookclass.png';
+import {
+  Form,
+  PayBtn,
+  TextBox,
+  Label,
+  FormContainer,
+  BtnBox,
+  Price,
+} from "../styles/Form";
+import { BookClass } from "../styles/Form";
+import bookclass from "../assets/bookclass.png";
 import { loadStripe } from "@stripe/stripe-js";
 //stripe published key
 const stripePromise = loadStripe(
@@ -8,7 +16,7 @@ const stripePromise = loadStripe(
 );
 
 export function NewBooking({ history, location }) {
- //using localhost:3000 for backend url
+  //using localhost:3000 for backend url
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
@@ -18,37 +26,36 @@ export function NewBooking({ history, location }) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
+        // new booking is taking the information from create session and automatically entering it in a form
         body: JSON.stringify({
-          time: location.state.time, 
+          time: location.state.time,
           name: location.state.name,
           date: location.state.date,
-          day: location.state.day
+          day: location.state.day,
         }),
       });
-      console.log(e)
+      console.log(e);
       //fetch stripe payments page using local host
-          const stripe = await stripePromise;
-          const response = await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}/charges`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
-          );
+      const stripe = await stripePromise;
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/charges`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
-          const stripeId = await response.json();
-          // //When client clicks "pay" redirect to checkout
-          const result = await stripe.redirectToCheckout({
-            sessionId: stripeId.id,
-          });
+      const stripeId = await response.json();
+      // //When client clicks "pay" redirect to checkout
+      const result = await stripe.redirectToCheckout({
+        sessionId: stripeId.id,
+      });
 
       history.push("/bookings");
-    } catch (err) {
-
-    }
+    } catch (err) {}
   }
   // Client can view their booking and pay for the class
   return (
@@ -57,7 +64,7 @@ export function NewBooking({ history, location }) {
         <img src={bookclass} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </BookClass>
       <FormContainer>
-      <Form onSubmit={onFormSubmit}>
+        <Form onSubmit={onFormSubmit}>
           <Label htmlFor="name">Class</Label>
           <TextBox
             type="text"
@@ -90,17 +97,13 @@ export function NewBooking({ history, location }) {
             defaultValue={location.state.date}
             disabled
           />
-        <>
-
-        {/* This link will take you to Stripe  */}
-<<<<<<< HEAD
-        <h4>Payment for booking</h4>
-=======
->>>>>>> main
-        <Price>$25</Price>
-        {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
-        </>
-      </Form>
+          <>
+            {/* This link will take you to Stripe  */}
+            <h4>Payment for booking</h4>
+            <Price>$25</Price>
+            {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
+          </>
+        </Form>
       </FormContainer>
 
       <BtnBox>
