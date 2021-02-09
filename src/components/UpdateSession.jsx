@@ -50,7 +50,8 @@ export function UpdateSession() {
             time: time,
             minutes: minutes,
             cost: cost,
-            day: day
+            day: day,
+            instructor_name: instructor_name
           },
         }),
       });

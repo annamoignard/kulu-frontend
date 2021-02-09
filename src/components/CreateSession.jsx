@@ -15,6 +15,7 @@ export function CreateSession({ history }) {
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
+      console.log("here")
       await fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
         method: "POST",
         headers: {
@@ -28,11 +29,12 @@ export function CreateSession({ history }) {
             time: time,
             minutes: minutes,
             cost: cost,
-            day: day
+            day: day,
+            instructor_name: instructor_name
           },
         }),
       });
-      // this is like using redirect_to
+    //   // this is like using redirect_to
       history.push("/schedule");
     } catch (err) {
     }
