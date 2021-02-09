@@ -104,6 +104,7 @@ export function NewBooking({ history, location }) {
             {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
           </>
         </Form>
+
       </FormContainer>
 
       <BtnBox>

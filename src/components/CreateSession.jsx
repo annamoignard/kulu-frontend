@@ -45,7 +45,7 @@ export function CreateSession({ history }) {
       history.push("/schedule");
     } catch (err) {}
   }
-
+// here we will fill in a form that is sent to the databse, and we use a fetch to display the data in a grid in schedule
   return (
     <>
       <AddClass>
@@ -118,7 +118,7 @@ export function CreateSession({ history }) {
             type="number"
             name="cost"
             id="cost"
-            placeholder="$25"
+            placeholder="25"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
           />
@@ -132,7 +132,8 @@ export function CreateSession({ history }) {
             onChange={(e) => setMinutes(e.target.value)}
           />
           <Button id="submit" type="submit" value="Submit" />
-        </Form>
+        </Form >
+
       </FormContainer>
     </>
   );

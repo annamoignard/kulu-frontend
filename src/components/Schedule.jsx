@@ -44,6 +44,7 @@ export function Schedule() {
     } catch (err) {}
   }
 
+  // here is our schedule for displaying information about the classes and users can make selections and book
   return (
     <>
       <KuluLogo>
