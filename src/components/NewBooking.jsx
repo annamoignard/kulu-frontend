@@ -1,4 +1,4 @@
-import { Form, Button, TextBox, Label, FormContainer } from '../styles/Form';
+import { Form, PayBtn, TextBox, Label, FormContainer, BtnBox, Price} from '../styles/Form';
 import { BookClass } from '../styles/Form';
 import bookclass from '../assets/bookclass.png';
 import { loadStripe } from "@stripe/stripe-js";
@@ -91,23 +91,25 @@ export function NewBooking({ history, location }) {
             disabled
           />
         <>
+
         {/* This link will take you to Stripe  */}
         <h4>Payment of $25 for booking</h4>
+        <Price>$25</Price>
         {/* <Button id="checkout-button" type="submit" value="Submit" /> */}
         </>
       </Form>
       </FormContainer>
 
-      <div>
-        <Button
+      <BtnBox>
+        <PayBtn
           type="button"
           id="checkout-button"
           role="link"
           onClick={onFormSubmit}
         >
           Submit
-        </Button>
-      </div>
+        </PayBtn>
+      </BtnBox>
     </>
   );
 }

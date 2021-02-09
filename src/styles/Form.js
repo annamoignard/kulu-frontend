@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Title = styled.h1`
  font-family: 'Poppins', sans-serif;
  text-align: center; 
@@ -20,8 +19,38 @@ font-family: 'Poppins', sans-serif;
 color: navy; 
  `
 
-export const Button = styled.button`
+export const PayBtn = styled.button`
 width: 100px; 
+color: navy; 
+margin-top: 15px; 
+text-decoration: none; 
+padding: 5px; 
+font-size: 18px; 
+font-family: 'Poppins', sans-serif;
+text-align: center; 
+display: flex; 
+justify-content: center; 
+:hover {
+  color: navy; 
+}
+`
+
+export const BtnBox = styled.div`
+display: flex; 
+justify-content: center;
+ `
+
+export const Price = styled.h3`
+display: flex; 
+justify-content: center;
+font-family: 'Poppins', sans-serif;
+color: navy; 
+ `
+
+export const Button = styled.input`
+width: 100px; 
+height: 75px; 
+color: navy; 
 margin-top: 15px; 
 padding: 5px; 
 font-size: 18px; 
