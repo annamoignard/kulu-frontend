@@ -39,7 +39,7 @@ export function CreateSession({ history }) {
     } catch (err) {
     }
   }
-
+// here we will fill in a form that is sent to the databse, and we use a fetch to display the data in a grid in schedule
   return (
     <>
       <AddClass>
