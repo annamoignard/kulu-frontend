@@ -6,13 +6,13 @@ import updateclass from '../assets/updateclass.png';
 
 
 export function UpdateSession() {
-  const [name, setName] = useState("Vinyasa Flow");
+  const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [minutes, setMinutes] = useState("");
   const [cost, setCost] = useState("");
-  const [day, setDay] = useState("Monday");
-  const [instructor_name, setInstructorname] = useState("Instructor");
+  const [day, setDay] = useState("");
+  const [instructor_name, setInstructorname] = useState("");
   const { id } = useParams();
   const history = useHistory();
 

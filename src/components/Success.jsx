@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
-import { Btn } from '../styles/Schedule';
-import { ScheduleContainer} from '../styles/Schedule';
+import { Btn, ScheduleCards , ScheduleContainer} from '../styles/Schedule';
+import { Heading } from '../styles/Success';
 
 export function Success(props) {
   const [booking, setBooking] = useState(null);
@@ -26,17 +26,20 @@ export function Success(props) {
   return (
     booking && (
       <ScheduleContainer>
-        <div>
+        <Heading>
+          <h1>Thanks so much for your payment! We can't wait to see you in class. Please check your emails for a confirmation!</h1>
+        </Heading>
+        <ScheduleCards>
           <h2>{booking.name}</h2>
           <p>{booking.time}</p>
           <p>{booking.day}</p>
           <p>${booking.cost}</p>
-        </div>
         <>
         <Btn to="/bookings">
           My Bookings
         </Btn>
         </>
+        </ScheduleCards>
       </ScheduleContainer>
     )
   );
