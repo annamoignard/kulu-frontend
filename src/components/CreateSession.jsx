@@ -34,7 +34,7 @@ export function CreateSession({ history }) {
           },
         }),
       });
-    //   // this is like using redirect_to
+      //   // this is like using redirect_to
       history.push("/schedule");
     } catch (err) {
     }
@@ -46,7 +46,7 @@ export function CreateSession({ history }) {
         <img src={ADDCLASS} alt="kulu-logo" style={{ borderRadius: "50%" }} />
       </AddClass>
       <FormContainer>
-      <Form onSubmit={onFormSubmit}>
+        <Form onSubmit={onFormSubmit}>
           <Label htmlFor="name">Class Type</Label>
           <Select
             type="text"
@@ -112,21 +112,21 @@ export function CreateSession({ history }) {
             type="number"
             name="cost"
             id="cost"
-            placeholder="$25"
+            placeholder="25"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
           />
-        <Label htmlFor="minutes">Minutes</Label>
-        <TextBox
-          type="text"
-          name="minutes"
-          id="minutes"
-          placeholder="60"
-          value={minutes}
-          onChange={(e) => setMinutes(e.target.value)}
-        />
-        <Button id="submit" type="submit" value="Submit" />
-      </Form >
+          <Label htmlFor="minutes">Minutes</Label>
+          <TextBox
+            type="text"
+            name="minutes"
+            id="minutes"
+            placeholder="60"
+            value={minutes}
+            onChange={(e) => setMinutes(e.target.value)}
+          />
+          <Button id="submit" type="submit" value="Submit" />
+        </Form >
       </FormContainer>
     </>
   );
