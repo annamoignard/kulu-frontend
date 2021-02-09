@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavLink } from '../styles/Nav';
+import { Nav, NavLink } from "../styles/Nav";
 
 
 // this is for users who are logged out. you need to sign in to view protected routes 

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import { Form, Select, Button, TextBox, Label, FormContainer } from '../styles/Form';
-import { AddClass } from '../styles/Form';
-import ADDCLASS from '../assets/ADDCLASS.png';
+import {
+  Form,
+  Select,
+  Button,
+  TextBox,
+  Label,
+  FormContainer,
+} from "../styles/Form";
+import { AddClass } from "../styles/Form";
+import ADDCLASS from "../assets/ADDCLASS.png";
 
 export function CreateSession({ history }) {
   const [name, setName] = useState("Vinyasa Flow");
@@ -15,12 +22,12 @@ export function CreateSession({ history }) {
   async function onFormSubmit(e) {
     try {
       e.preventDefault();
-      console.log("here")
+      console.log("here");
       await fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           session: {
@@ -30,14 +37,13 @@ export function CreateSession({ history }) {
             minutes: minutes,
             cost: cost,
             day: day,
-            instructor_name: instructor_name
+            instructor_name: instructor_name,
           },
         }),
       });
       //   // this is like using redirect_to
       history.push("/schedule");
-    } catch (err) {
-    }
+    } catch (err) {}
   }
 // here we will fill in a form that is sent to the databse, and we use a fetch to display the data in a grid in schedule
   return (
@@ -127,7 +133,8 @@ export function CreateSession({ history }) {
           />
           <Button id="submit" type="submit" value="Submit" />
         </Form >
+
       </FormContainer>
     </>
   );
-} 
+}

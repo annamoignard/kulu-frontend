@@ -1,8 +1,12 @@
-import React from 'react';
-import { HomeImg, LogoContainer, BookButton } from '../styles/Homepage';
-import { ContactContainer, Contact, Phone, Email, Location } from '../styles/Contact';
-
-
+import React from "react";
+import { HomeImg, LogoContainer, BookButton } from "../styles/Homepage";
+import {
+  ContactContainer,
+  Contact,
+  Phone,
+  Email,
+  Location,
+} from "../styles/Contact";
 
 export function Home() {
   return (
