@@ -112,7 +112,7 @@ export function CreateSession({ history }) {
             type="number"
             name="cost"
             id="cost"
-            placeholder="$25"
+            placeholder="25"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
           />
