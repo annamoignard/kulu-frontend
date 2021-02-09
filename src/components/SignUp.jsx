@@ -70,7 +70,7 @@ export function SignUp({ history }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button type="submit" value="Submit"> Submit </Button>
+          <Button id="submit" type="submit" value="Submit"/>
       </Form>
       </FormContainer>
     </>
