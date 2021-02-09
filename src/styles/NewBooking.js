@@ -27,6 +27,7 @@ display: flex;
     width: 80px;
     height: 20px;
     margin: 1px 0px;
+    flex-direction: center;
   }
 `;
 //Styles for Bookings Page
