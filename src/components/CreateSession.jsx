@@ -69,7 +69,7 @@ export function CreateSession({ history }) {
             <option value="Anna Tamara">Anna Tamara</option>
             <option value="Chris Scott">Chris Scott</option>
             <option value="Indigo Love">Indigo Love</option>
-            <option value="Nicole">Nicole</option>
+            <option value="Nicole Young">Nicole Young</option>
           </Select>
           <Label htmlFor="day">Day</Label>
           <Select
