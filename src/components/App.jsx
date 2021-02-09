@@ -10,6 +10,7 @@ import { SignUp } from "./SignUp";
 import { UpdateSession } from "./UpdateSession";
 import { CreateSession } from "./CreateSession";
 import { Success } from "./Success";
+import { Cancel } from "./Cancel";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <ProtectedRoute exact path="/create-session" component={CreateSession} />
         <ProtectedRoute exact path="/session/:id/update" component={UpdateSession} />
         <ProtectedRoute exact path="/success/:id" component={Success} />
+        <ProtectedRoute exact path="/cancel" component={Cancel} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
         <NavBar auth={false}>
